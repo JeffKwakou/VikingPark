@@ -1,0 +1,239 @@
+/* DECLARATION COULEURS ET FONTS */
+:root {
+    --blue-color: #1A1E26;
+    --turquoise-color: #71D3B4;
+    --grey-color: #E5E5E5;
+    --white-color: #ffffff;
+    --black-color: #000000;
+  }
+
+@font-face {
+    font-family: 'openSans-bold';
+    src: url('./assets/fonts/Open_Sans/OpenSans-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'openSans-semibold';
+    src: url('./assets/fonts/Open_Sans/OpenSans-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'openSans';
+    src: url('./assets/fonts/Open_Sans/OpenSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'ptSerif';
+    src: url('./assets/fonts/PT_Serif/PTSerif-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'ptSerif-bold';
+    src: url('./assets/fonts/PT_Serif/PTSerif-Bold.ttf') format('truetype');
+}
+
+/* GENERAL */
+body {
+    font-family: "openSans", sans-serif;
+}
+
+h1 {
+    text-transform: uppercase;
+    color: var(--grey-color);
+    font-size: 2.7em;
+    font-family: "ptSerif-bold";
+}
+
+h2 {
+    text-transform: uppercase;
+    color: var(--turquoise-color);
+    font-size: 2.2em;
+    font-family: "ptSerif-bold";
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "openSans-semibold";
+    font-size: 1em;
+}
+
+h5 {
+    color: var(--grey-color);
+    font-size: 2em;
+    text-transform: uppercase;
+    font-family: "openSans-bold";
+}
+
+p {
+    font-size: 1em;
+}
+
+
+/* HEADER */
+header {
+    background-color: var(--blue-color);
+    padding-bottom: 10px;
+}
+
+#auth {
+    margin-top: 15px;
+    margin-right: 40px;
+}
+
+#auth a {
+    color: var(--grey-color);
+    font-size: 1em;
+}
+
+#sep-auth {
+    color: var(--grey-color);
+}
+
+#navbarNav a {
+    color: var(--grey-color);
+    border-bottom: solid 3px transparent;
+    margin-left: 15px;
+    font-size: 1em;
+}
+
+#navbarNav a:hover {
+    color: var(--grey-color);
+    border-bottom: solid 3px var(--turquoise-color);
+}
+
+
+
+/* BANNIERE */
+#banniere {
+    width: 100%;
+    height: auto;
+    background-image: url("./assets/images/warViking.jpg");
+    padding: 280px 0;
+    margin-top: 90px;
+}
+
+.viking {
+    color: var(--turquoise-color);
+}
+
+#banniere h1 {
+    margin-bottom: 20px;
+}
+
+#banniere-firstChild {
+    font-size: 1.2em;
+    font-family: "openSans-bold";
+    color: var(--grey-color);
+}
+
+#banniere-lastChild {
+    color: var(--grey-color);
+    margin-bottom: 25px;
+}
+
+#banniere button {
+    font-family: "openSans-bold";
+    text-transform: uppercase;
+    background-color: var(--turquoise-color);
+    color: var(--grey-color);
+    border: solid 3px var(--turquoise-color);
+    padding: 10px 20px;
+}
+
+#banniere button:hover {
+    background-color: transparent;
+    color: var(--turquoise-color);
+    border: solid 3px var(--turquoise-color);
+}
+
+
+/* SECTION ATTRACTIONS & ACTIVITES */
+.attraction {
+    margin-top: 90px;
+}
+
+.attraction h3, #myCarousel, #myCarouselActivite {
+    margin-bottom: 30px;
+}
+
+#myCarousel p, #myCarouselActivite p {
+    text-transform: uppercase;
+}
+
+.plusAttraction {
+    text-align: center;
+}
+
+.plusAttraction a {
+    color: var(--turquoise-color);
+    background-color: transparent;
+    border: solid 3px var(--turquoise-color);
+    font-family: "openSans-bold";
+    padding: 10px 20px;
+    text-transform: uppercase;
+}
+
+.plusAttraction a:hover {
+    background-color: var(--turquoise-color);
+    color: var(--grey-color);
+    border: solid 3px var(--turquoise-color);
+}
+
+
+/* SOCIAL SECTION */
+#social {
+    margin-top: 90px;
+    margin-bottom: 60px;
+}
+
+#social p {
+    text-align: center;
+}
+
+#social label {
+    margin: 0 !important;
+    vertical-align: middle;
+}
+
+#social input {
+    border: solid 3px var(--black-color);
+}
+
+#social button {
+    background-color: transparent;
+    border: solid 3px var(--black-color);
+    color: var(--black-color);
+    border-radius: none;
+}
+
+
+
+/* FOOTER */
+footer {
+    background-color: var(--blue-color);
+    padding-top: 2px;
+    padding-bottom: 10px;
+}
+
+footer ul {
+    margin-bottom: 20px;
+}
+
+footer a {
+    color: var(--grey-color);
+    font-size: 1em;
+}
+
+footer a:hover {
+    color: var(--grey-color);
+    text-decoration: underline !important;    
+}
+
+footer div {
+    text-align: center;
+    font-size: 0.8em;
+    color: var(--grey-color);
+    margin-top: 15px;
+}
