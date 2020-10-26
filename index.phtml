@@ -24,7 +24,7 @@
                 <!-- MENU -->
                 <nav class="navbar navbar-expand-lg container navbar-dark">
                     <a class="navbar-brand" href="#">
-                        <img src="./assets/logo/logoValhalla.png" alt="Logo Viking Park" width="200" height="auto">
+                        <img src="./assets/logo/logoValhalla.png" alt="Logo Viking Park" width="250" height="auto">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -123,7 +123,7 @@
         <section class="attraction">
             <div class="container">
                 <h2>Nos activités</h2>
-                <h3>Entrez dans la peau d'un vrai viking</h3>
+                <h3>Entrez dans la peau d'un viking</h3>
 
                 <div id="myCarouselActivite" class="carousel slide carousel-fade" data-ride="carousel">
 
@@ -174,6 +174,7 @@
             </div>
         </section>
 
+        <!-- RESEAUX SOCIAUX & NEWSLETTER -->
         <section id="social">
         <div class="container">
             <div class="row">
@@ -182,11 +183,11 @@
                     <p>Rejoingez-nous sur les réseaux sociaux et partagez vos attractions préférées avec vos ami(e)s.</p>
                     <div>
                         <div id="socialIcone">
-                            <img src="./assets/icone/iconeFacebook.svg" alt="Icone Facebook" width="50" height="50">
-                            <img src="./assets/icone/iconeTwitter.svg" alt="Icone Twitter" width="50" height="50">
-                            <img src="./assets/icone/iconeInstagram.svg" alt="Icone Instagram" width="50" height="50">
-                            <img src="./assets/icone/iconeYoutube.svg" alt="Icone Youtube" width="50" height="50"> 
-                        </div>                        
+                            <a href="https://www.facebook.com/"><img src="./assets/icone/iconeFacebook.svg" alt="Icone Facebook" width="50" height="50"></a>
+                            <a href="https://twitter.com"><img src="./assets/icone/iconeTwitter.svg" alt="Icone Twitter" width="50" height="50"></a>
+                            <a href="https://www.instagram.com"><img src="./assets/icone/iconeInstagram.svg" alt="Icone Instagram" width="50" height="50"></a>
+                            <a href="https://www.youtube.com"><img src="./assets/icone/iconeYoutube.svg" alt="Icone Youtube" width="50" height="50"></a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -194,8 +195,8 @@
                     <p>Restez au courant des actualités du parc et profitez de promotions exclusives</p>
                     <form action="" class="form-group row">
                         <label for="newsletter" class="col-3">Votre email : </label>
-                        <input type="text" name="newsletter" placeholder="Entrez votre email..." class="form-control col-6">
-                        <button type="submit" class="btn btn-primary col-3">S'abonner</button>
+                        <input type="text" name="newsletter" placeholder="Entrez votre email..." class="form-control col-6" id="inputNewsletter">
+                        <button type="submit" class="btn btn-primary col-3" id="btnNewsletter">S'abonner</button>
                     </form>
                 </div>
             </div>            
@@ -203,6 +204,7 @@
         </section>
     </main>
 
+    <!-- FOOTER -->
     <footer>
         <div class="container">
             <ul class="nav justify-content-center">

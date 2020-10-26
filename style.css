@@ -84,7 +84,7 @@ header {
 
 #auth a {
     color: var(--grey-color);
-    font-size: 1em;
+    font-size: 0.9em;
 }
 
 #sep-auth {
@@ -208,6 +208,23 @@ header {
     border-radius: none;
 }
 
+#socialIcone {
+    text-align: center;
+}
+
+#socialIcone a {
+    margin: 0 5px;
+}
+
+#inputNewsletter {
+    height: 40px;
+    width: auto;
+}
+
+#btnNewsletter {
+    height: 40px;
+    width: auto;
+}
 
 
 /* FOOTER */
