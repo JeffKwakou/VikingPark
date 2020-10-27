@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toutes nos activités</title>
+    <title>Contactez-nous !</title>
 
     <!-- Intégration de Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -13,7 +13,7 @@
 
     <!-- Intégration de mes scripts & styles -->
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="activite.css">
+    <link rel="stylesheet" href="contact.css">
 </head>
 <body>
     <!-- HEADER -->
@@ -52,32 +52,62 @@
                 </nav>      
     </header>
 
-    <!-- LES ACTIVITES -->
-    <main class="container">
-        <section class="activite">
-            <h2>Nos animations</h2>
-            <div class="row">            
-                    <div class="col-md-4">
-                        <h3>Nom animation</h3>
-                        <a href="#"><img src="./assets/images/attractions_example.jpg" alt="attraction exemple" width="100%" height="auto"></a>
-                        <div class="favori"><a href="#"><img src="./assets/icone/love.svg" alt="" width="50px" width="auto"></a></div>                    
-                        <p>Description de l'animation avec un bref paragraphe</p>
+    <!-- FORMULAIRE -->
+    <div class="container" id="contact">
+        <h2>Contactez-nous !</h2>
+        <p>Vous avez des questions ? Vous souhaitez en savoir plus sur le park ? <br>
+        N'hésitez pas à nous laissez une message, nous vous répondrons dans les plus brefs délais.</p>
+        <form action="">
+            <div class="row">
+                <div class="col-md-6">
+                    <div>
+                        <input type="text" placeholder="NOM *">
                     </div>
-            </div>
-        </section>
+                    <div>
+                        <input type="text" placeholder="PRENOM *">
+                    </div>
+                    <div>
+                        <input type="text" placeholder="EMAIL *">
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                <textarea placeholder="SAISISSEZ ICI VOTRE MESSAGE *"></textarea>
+                </div>
+            </div>            
 
-        <section class="activite">
-            <h2>Nos spectacles</h2>
-            <div class="row">            
-                    <div class="col-md-4">
-                        <h3>Nom spectacle</h3>
-                        <a href="#"><img src="./assets/images/attractions_example.jpg" alt="attraction exemple" width="100%" height="auto"></a>
-                        <div class="favori"><a href="#"><img src="./assets/icone/love.svg" alt="" width="50px" width="auto"></a></div>                    
-                        <p>Description du spectacle avec un bref paragraphe</p>
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+        </form>
+    </div>
+
+    <!-- RESEAUX SOCIAUX & NEWSLETTER -->
+    <section id="social">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Réseaux Sociaux</h2>
+                    <p>Rejoingez-nous sur les réseaux sociaux et partagez vos attractions préférées avec vos ami(e)s.</p>
+                    <div>
+                        <div id="socialIcone">
+                            <a href="https://www.facebook.com/"><img src="./assets/icone/iconeFacebook.svg" alt="Icone Facebook" width="50" height="50"></a>
+                            <a href="https://twitter.com"><img src="./assets/icone/iconeTwitter.svg" alt="Icone Twitter" width="50" height="50"></a>
+                            <a href="https://www.instagram.com"><img src="./assets/icone/iconeInstagram.svg" alt="Icone Instagram" width="50" height="50"></a>
+                            <a href="https://www.youtube.com"><img src="./assets/icone/iconeYoutube.svg" alt="Icone Youtube" width="50" height="50"></a>
+                        </div>
                     </div>
-            </div>
+                </div>
+                <div class="col-md-6">
+                    <h2>Newsletter</h2>
+                    <p>Restez au courant des actualités du parc et profitez de promotions exclusives</p>
+                    <form action="" class="form-group row">
+                        <label for="newsletter" class="col-3">Votre email : </label>
+                        <input type="text" name="newsletter" placeholder="Entrez votre email..." class="form-control col-6" id="inputNewsletter">
+                        <button type="submit" class="btn btn-primary col-3" id="btnNewsletter">S'abonner</button>
+                    </form>
+                </div>
+            </div>            
+        </div>
         </section>
-    </main>
 
     <!-- FOOTER -->
     <footer>
