@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pré-réservation</title>
+
+    <!-- Intégration de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Intégration de mes scripts & styles -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reservation.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="fixed-top">
+        <!-- LIENS DE CONNEXION -->
+        <div class="text-right" id="auth">
+            <a href="#">Inscription</a> <span id="sep-auth">|</span> <a href="#" class="auth-decal">Connexion</a>
+        </div>
+                <!-- MENU -->
+                <nav class="navbar navbar-expand-lg container navbar-dark">
+                    <a class="navbar-brand" href="#">
+                        <img src="./assets/logo/logoValhalla.png" alt="Logo Viking Park" width="250" height="auto">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-carousel-item active">
+                                <a class="nav-link" href="index.phtml">Accueil</a>
+                            </li>
+                            <li class="nav-carousel-item">
+                                <a class="nav-link" href="attraction.phtml">Attractions</a>
+                            </li>
+                            <li class="nav-carousel-item">
+                                <a class="nav-link" href="activite.phtml">Evènements</a>
+                            </li>
+                            <li class="nav-carousel-item">
+                                <a class="nav-link" href="reservation.phtml">Pré-réserver</a>
+                            </li>
+                            <li class="nav-carousel-item">
+                                <a class="nav-link" href="contact.phtml">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>      
+    </header>
+
+    <div class="container">
+        <h2>Pré-réservez votre billet</h2>
+        <p>Précommander directement votre billet pour être dans les premiers à découvrir votre nouveau parc viking</p>
+
+        <h3>Billet 1 jour</h3>
+        <p>Nous remboursons les billets des personnes de moins de 1 mètre à l'entrée du parc <br>
+        Economisez -5 € par billet acheté sur le site <br>
+        Le billet adulte : 20 € <span class="lineThrough">au lieu de 25 €</span><br>
+        Le billet adulte : 15 € <span class="lineThrough">au lieu de 20 €</span><br>
+        Le billet famille : 65 € <span class="lineThrough">au lieu de 70 €</span><br></p>
+        <form action="">
+            <table>
+                    <tr>
+                        <th></th>
+                        <th>Prix</th>
+                        <th>Quantité</th>
+                    </tr>
+                    <tr>
+                        <td>Billet 1J Adulte</td>
+                        <td><input type="hidden" value="20">20,00 €</td>
+                        <td><select name="" id="">
+                            <option value="0" selected="selected">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td>Billet 1J Enfant</td>
+                        <td><input type="hidden" value="15">15,00 €</td>
+                        <td><select name="" id="">
+                            <option value="0" selected="selected">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td>Billet 1J Famille</td>
+                        <td><input type="hidden" value="65">65,00 €</td>
+                        <td><select name="" id="">
+                            <option value="0" selected="selected">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select></td>
+                    </tr>
+            </table>
+
+            <button type="submit">Envoyer</button>
+        </form>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <ul class="nav justify-content-center">
+                <li class="nav-item"><a href="#" class="nav-link">Mentions légales</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Cookies</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Protection des données</a></li>
+            </ul>
+            <div>© 2020 - Viking Park. Tous droits réservés</div>
+        </div>
+    </footer>    
+</body>
+</html>
