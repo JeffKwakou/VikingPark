@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+
+    <!-- Intégration de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Intégration de mes scripts & styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Connexion</h2>
+
+    <!-- Formulaire de connexion -->
+    <form action="connexion_check.php" method="post">
+        <!-- Créer les inputs pseudo et password -->
+        <div>
+            <label for="pseudo">Pseudo : 
+            <input type="text" name="pseudo" placeholder="Entrez votre pseudo"></label>
+        </div>
+        <div>
+            <label for="password">Mot de passe : 
+            <input type="password" name="password" placeholder="Entrez votre mot de passe"></label>
+        </div>
+
+        <!-- Bouton pour se connecter -->
+        <button type="submit">Se connecter</button>
+    </form>
+
+    <!-- Faire un lien faire la page d'inscription -->
+    <a href="inscription.phtml">Pas encore inscrit ? Inscrivez-vous maintenant !</a>
+    
+</body>
+</html>

@@ -1,7 +1,15 @@
+<?php
+    session_start();
+?>
+
 <header class="fixed-top">
         <!-- LIENS DE CONNEXION -->
         <div class="text-right" id="auth">
-            <a href="#">Inscription</a> <span id="sep-auth">|</span> <a href="#" class="auth-decal">Connexion</a>
+            <?php if (isset($_SESSION['pseudo'])) { ?>
+               <a href="authentification/deconnexion.php">Déconnexion</a> 
+            <?php } else { ?>
+                <a href="authentification/inscription.phtml">Inscription</a> <span id="sep-auth">|</span> <a href="authentification/connexion.phtml" class="auth-decal">Connexion</a>
+            <?php } ?>
         </div>
                 <!-- MENU -->
                 <nav class="navbar navbar-expand-lg container navbar-dark">
