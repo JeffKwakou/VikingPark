@@ -1,0 +1,50 @@
+/* DECLARATION COULEURS ET FONTS */
+:root {
+    --blue-color: #1A1E26;
+    --turquoise-color: #71D3B4;
+    --grey-color: #E5E5E5;
+    --white-color: #ffffff;
+    --black-color: #000000;
+  }
+
+@font-face {
+    font-family: 'openSans-bold';
+    src: url('./assets/fonts/Open_Sans/OpenSans-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'openSans-semibold';
+    src: url('./assets/fonts/Open_Sans/OpenSans-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'openSans';
+    src: url('./assets/fonts/Open_Sans/OpenSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'ptSerif';
+    src: url('./assets/fonts/PT_Serif/PTSerif-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'ptSerif-bold';
+    src: url('./assets/fonts/PT_Serif/PTSerif-Bold.ttf') format('truetype');
+}
+
+#dashboard {
+    margin-top: 150px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-bottom: 30px;
+}
+
+.form-group {
+    width: 100%;
+}
+
+label {
+    width: 100%;
+}

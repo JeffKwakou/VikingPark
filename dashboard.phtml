@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - admin</title>
+
+    <!-- Intégration de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Intégration de mes scripts & styles -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <?php include 'include/header.phtml' ?>
+
+    <div id="dashboard">
+        <div class="container">
+            <h2>Dashboard</h2>
+
+            <!-- FORMULAIRE POUR AJOUTER UN CONTENU -->
+            <div>
+                <h3>Ajouter un contenu</h3>
+                <form action="dashboard/addContent.php" method="post">
+                    <div class="form-group">
+                        <label for="titre">Titre de l'activité : 
+                        <input type="text" name="titre" placeholder="Ajouter un titre" class="form-control"></label>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description de l'activité : 
+                        <input type="text" name="description" placeholder="Ajoutez une description" class="form-control"></label>
+                    </div>
+                    <div class="form-group">
+                        
+                        <label for="type">Type de l'activité : 
+                        <select class="form-control" name="typeSelect">
+                            <!-- En fonction des type qu'il y a en database -->
+                            <option value="attraction">Attraction</option>
+                            <option value="activité">Activité</option>
+                            <option value="animation">Animation</option>
+                        </select>
+                        <input type="text" name="type" placeholder="Ajoutez un type" class="form-control"></label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mx-auto">Ajouter l'activité</button>
+                </form>
+                <p><?php 
+                    if (isset($_GET['ajout-contenu']) AND $_GET['ajout-contenu'] == 'error') {
+                        echo 'Probleme lors de l ajout du contenu';
+                    } else if (isset($_GET['ajout-contenu']) AND $_GET['ajout-contenu'] == 'success') {
+                        echo 'Ajout pris en compte';
+                    }
+                ?></p>
+            </div>
+
+            <!-- LISTE DES CONTENUS -->
+            <div>
+                <h3>Liste des contenus</h3>
+
+                <div class="row">
+                    <div class="col-9">
+                        <p>Titre de l'activité</p>
+                        <p>Description de l'activité</p>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-warning">Modifier</button>
+                        <button class="btn btn-danger">Supprimer</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RECAPITULATIF DES NOTES -->
+            <div>
+                <h3>Récapitulatif des notes</h3>
+
+                <div>
+                    <p>Titre de l'attraction</p>
+                    <p>Nombres de likes sur l'attraction</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

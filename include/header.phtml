@@ -6,7 +6,7 @@
         <!-- LIENS DE CONNEXION -->
         <div class="text-right" id="auth">
             <?php if (isset($_SESSION['pseudo'])) { ?>
-                <a href="#"><?php echo $_SESSION['pseudo']; ?></a>
+                <a href="dashboard.phtml"><?php echo $_SESSION['pseudo']; ?></a>
                 <span id="deconnexionSeparate"> | </span>
                <a href="authentification/deconnexion.php">Déconnexion</a> 
             <?php } else { ?>
