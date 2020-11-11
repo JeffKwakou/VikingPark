@@ -103,6 +103,10 @@ header {
     border-bottom: solid 3px var(--turquoise-color);
 }
 
+#deconnexionSeparate {
+    color: var(--grey-color);
+}
+
 
 
 /* BANNIERE */

@@ -3,6 +3,7 @@
     $email = $_POST['email'];
     $pseudo = $_POST['pseudo'];
     $password = $_POST['password'];
+    $passwordConfirm = $_POST['passwordConfirm'];
 
     // Connexion à ma database
     try {
@@ -18,33 +19,39 @@
         //Vérifier si les champs ne sont pas vides
         if ($email != '' AND $email != '' AND $password != '') {
 
-            //Vérifier que le pseudo n'existe pas dans la database
-            $reqPseudo = $database->prepare('SELECT pseudo FROM userconnected WHERE pseudo = ?');
-            $reqPseudo->execute(array($pseudo));
-            $resultatPseudo = $reqPseudo->fetch();
+            //Vérifier si les mots de passe tapés sont identiques
+            if ($password == $passwordConfirm){
 
-            if ($resultatPseudo == false) {
-                $pass_hache = password_hash($password, PASSWORD_DEFAULT);
+                //Vérifier que le pseudo n'existe pas dans la database
+                $reqPseudo = $database->prepare('SELECT pseudo FROM userconnected WHERE pseudo = ?');
+                $reqPseudo->execute(array($pseudo));
+                $resultatPseudo = $reqPseudo->fetch();
 
-                $newUser = $database->prepare('INSERT INTO userconnected (pseudo, pass, email, typevisitor, newsletter) VALUES (:pseudo, :pass, :email, :typevisitor, :newsletter)');
-                $newUser->execute(array(
-                    'pseudo' => $pseudo,
-                    'pass' => $pass_hache,
-                    'email' => $email,
-                    'typevisitor' => '2',
-                    'newsletter' => '0'
-                ));
+                if ($resultatPseudo == false) {
+                    $pass_hache = password_hash($password, PASSWORD_DEFAULT);
 
-                header('Location: ../index.phtml?inscription=valide');
+                    $newUser = $database->prepare('INSERT INTO userconnected (pseudo, pass, email, typevisitor, newsletter) VALUES (:pseudo, :pass, :email, :typevisitor, :newsletter)');
+                    $newUser->execute(array(
+                        'pseudo' => $pseudo,
+                        'pass' => $pass_hache,
+                        'email' => $email,
+                        'typevisitor' => '2',
+                        'newsletter' => '0'
+                    ));
 
+                    header('Location: ../index.phtml?inscription=valide');
+
+                } else {
+                    header('Location: ../inscription.phtml?pseudo=error');
+                }
             } else {
-                header('Location: inscription.phtml?pseudo=error');
+                header('Location: ../inscription.phtml?password=error');
             }
         } else {
-            header('Location: inscription.phtml?champs=error');
+            header('Location: ../inscription.phtml?champs=error');
         }
     } else {
-        header('Location: inscription.phtml?value=error');
+        header('Location: ../inscription.phtml?value=error');
     }
 
 

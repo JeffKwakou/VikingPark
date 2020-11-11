@@ -6,9 +6,11 @@
         <!-- LIENS DE CONNEXION -->
         <div class="text-right" id="auth">
             <?php if (isset($_SESSION['pseudo'])) { ?>
+                <a href="#"><?php echo $_SESSION['pseudo']; ?></a>
+                <span id="deconnexionSeparate"> | </span>
                <a href="authentification/deconnexion.php">Déconnexion</a> 
             <?php } else { ?>
-                <a href="authentification/inscription.phtml">Inscription</a> <span id="sep-auth">|</span> <a href="authentification/connexion.phtml" class="auth-decal">Connexion</a>
+                <a href="inscription.phtml">Inscription</a> <span id="sep-auth">|</span> <a href="connexion.phtml" class="auth-decal">Connexion</a>
             <?php } ?>
         </div>
                 <!-- MENU -->

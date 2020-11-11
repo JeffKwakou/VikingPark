@@ -17,20 +17,20 @@
 
     //Vérification si le pseudo est valide
     if ($resultat == false) {
-        header('Location: connexion.phtml?connexion=error');
+        header('Location: ../connexion.phtml?connexion=error');
     } else {
         //Comparaison du password envoyé haché avec celui de la database
         $passwordCorrect = password_verify($_POST['password'], $resultat['pass']);
 
         //Vérification si le password est correct
         if ($passwordCorrect == true) {
-            //Création de la session
+            //Création de la session et connexion
             session_start();
             $_SESSION['id'] = $resultat['Id_User'];
             $_SESSION['pseudo'] = $_POST['pseudo'];
             header('Location: ../index.phtml');
         } else {
-            header('Location: connexion.phtml?connexion=error');
+            header('Location: ../connexion.phtml?connexion=error');
         }
     }
 ?>
