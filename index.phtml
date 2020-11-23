@@ -48,27 +48,18 @@
 
                 <!-- The slideshow -->
                 <div class="carousel-inner">
-                <div class="carousel-item active">
+                <?php foreach($attractions as $attraction) {?>
+                <div class="carousel-item <?php if($firstSlideAttraction == 1) {
+                    echo 'active';
+                    $firstSlideAttraction++;
+                } ?>">
                     <img src="./assets/images/warViking.jpg" alt="Los Angeles" width="100%" height="auto">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Titre de l'attraction</h5>
-                        <p>Phrase d'accroche pour l'attraction</p>
+                        <h5><?php echo $attraction['name_activity']; ?></h5>
+                        <p><?php echo substr($attraction['description_activity'], 0, 45).'...'; ?></p>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <img src="./assets/images/bateauViking.jpg" alt="Los Angeles" width="100%" height="auto">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Titre de l'attraction</h5>
-                        <p>Phrase d'accroche pour l'attraction</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="./assets/images/warViking.jpg" alt="Los Angeles" width="100%" height="auto">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Titre de l'attraction</h5>
-                        <p>Phrase d'accroche pour l'attraction</p>
-                    </div>
-                </div>
+                <?php } ?>
                 </div>
 
                 <!-- Left and right controls -->
@@ -103,14 +94,19 @@
 
                 <!-- The slideshow -->
                 <div class="carousel-inner">
-                <div class="carousel-item active">
+                <?php foreach($activities as $activity) { ?>
+                <div class="carousel-item <?php if($firstSlideActivity == 1) {
+                    echo 'active';
+                    $firstSlideActivity++;
+                } ?>">
                     <img src="./assets/images/warViking.jpg" alt="Los Angeles" width="100%" height="auto">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Titre de l'activité</h5>
-                        <p>Phrase d'accroche pour l'activité</p>
+                        <h5><?php echo $activity['name_activity']; ?></h5>
+                        <p><?php echo substr($activity['description_activity'], 0, 45).'...'; ?></p>
                     </div>
                 </div>
-                <div class="carousel-item">
+                <?php } ?>
+                <!-- <div class="carousel-item">
                     <img src="./assets/images/bateauViking.jpg" alt="Los Angeles" width="100%" height="auto">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Titre de l'activité</h5>
@@ -123,7 +119,7 @@
                         <h5>Titre de l'activité</h5>
                         <p>Phrase d'accroche pour l'activité</p>
                     </div>
-                </div>
+                </div> -->
                 </div>
 
                 <!-- Left and right controls -->

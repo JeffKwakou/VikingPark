@@ -6,7 +6,7 @@
         <!-- LIENS DE CONNEXION -->
         <div class="text-right" id="auth">
             <?php if (isset($_SESSION['pseudo'])) { ?>
-                <a href="dashboard.phtml"><?php echo $_SESSION['pseudo']; ?></a>
+                <a href="dashboard.php"><?php echo $_SESSION['pseudo']; ?></a>
                 <span id="deconnexionSeparate"> | </span>
                <a href="authentification/deconnexion.php">Déconnexion</a> 
             <?php } else { ?>
@@ -15,7 +15,7 @@
         </div>
                 <!-- MENU -->
                 <nav class="navbar navbar-expand-lg container navbar-dark">
-                    <a class="navbar-brand" href="index.phtml">
+                    <a class="navbar-brand" href="index.php">
                         <img src="./assets/logo/logoValhalla.png" alt="Logo Viking Park" width="250" height="auto">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,7 +24,7 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-carousel-item active">
-                                <a class="nav-link" href="index.phtml">Accueil</a>
+                                <a class="nav-link" href="index.php">Accueil</a>
                             </li>
                             <li class="nav-carousel-item">
                                 <a class="nav-link" href="attraction.phtml">Attractions</a>

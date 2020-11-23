@@ -30,13 +30,23 @@
                 if ($resultatPseudo == false) {
                     $pass_hache = password_hash($password, PASSWORD_DEFAULT);
 
-                    $newUser = $database->prepare('INSERT INTO userconnected (pseudo, pass, email, typevisitor, newsletter) VALUES (:pseudo, :pass, :email, :typevisitor, :newsletter)');
+                    //Sauvegarde les infos complémentaires dans la database
+                    $newUserComplement = $database->prepare("INSERT INTO userComplement (email, newsletter) VALUES (:email, :newsletter)");
+                    $newUserComplement->execute(array(
+                        'email' => $email,
+                        'newsletter' => 0
+                    ));
+
+                    //Réucpère l'id du dernier insert 
+                    $idComplement = $database->lastInsertId();
+
+                    //Sauvegarde un utilisateur en insérant l'id des infos complémentaires
+                    $newUser = $database->prepare("INSERT INTO userconnected (pseudo, pass, role_user, Id_userComplement) 
+                    VALUES (:pseudo, :pass, 3, :Id_userComplement)");
                     $newUser->execute(array(
                         'pseudo' => $pseudo,
                         'pass' => $pass_hache,
-                        'email' => $email,
-                        'typevisitor' => '2',
-                        'newsletter' => '0'
+                        'Id_userComplement' => $idComplement
                     ));
 
                     header('Location: ../index.phtml?inscription=valide');

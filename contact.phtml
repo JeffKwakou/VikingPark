@@ -24,22 +24,22 @@
         <h2>Contactez-nous !</h2>
         <p>Vous avez des questions ? Vous souhaitez en savoir plus sur le park ? <br>
         N'hésitez pas à nous laissez une message, nous vous répondrons dans les plus brefs délais.</p>
-        <form action="">
+        <form action="contact/sendMail.php" method="post">
             <div class="row">
                 <div class="col-md-6">
                     <div>
-                        <input type="text" placeholder="NOM *">
+                        <input type="text" name="nom" placeholder="NOM *">
                     </div>
                     <div>
-                        <input type="text" placeholder="PRENOM *">
+                        <input type="text" name="sujet" placeholder="SUJET *">
                     </div>
                     <div>
-                        <input type="text" placeholder="EMAIL *">
+                        <input type="text" name="email" placeholder="EMAIL *">
                     </div>
                 </div>
                 
                 <div class="col-md-6">
-                <textarea placeholder="SAISISSEZ ICI VOTRE MESSAGE *"></textarea>
+                <textarea placeholder="SAISISSEZ ICI VOTRE MESSAGE *" name="message"></textarea>
                 </div>
             </div>            
 

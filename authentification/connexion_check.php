@@ -8,7 +8,7 @@
     }
 
     // Je récupère l'utilisateur dans ma database
-    $request = $database->prepare('SELECT Id_User, pseudo, pass FROM userconnected WHERE pseudo = :pseudo');
+    $request = $database->prepare('SELECT Id_User, pseudo, pass, role_user FROM userconnected WHERE pseudo = :pseudo');
     $request->execute(array(
         'pseudo' => $_POST['pseudo']
     ));
@@ -28,6 +28,7 @@
             session_start();
             $_SESSION['id'] = $resultat['Id_User'];
             $_SESSION['pseudo'] = $_POST['pseudo'];
+            $_SESSION['type'] = $resultat['role_user'];
             header('Location: ../index.phtml');
         } else {
             header('Location: ../connexion.phtml?connexion=error');

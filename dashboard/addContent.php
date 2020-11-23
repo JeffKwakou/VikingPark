@@ -20,39 +20,39 @@
         if ($titre != '' AND $description != '') {
 
             //Vérifier que le titre est unique
-            $reqTitle = $database->prepare('SELECT nameActivity from activity WHERE nameActivity = ?');
+            $reqTitle = $database->prepare('SELECT name_activity from activity WHERE name_activity = ?');
             $reqTitle->execute(array($titre));
             $resultTitle = $reqTitle->fetch();
 
             if ($resultTitle == false) {
 
                 //Ajouter le nouveau contenu à la database$
-                $reqContent = $database->prepare('INSERT INTO activity (nameActivity, descriptionActivity, typeActivity) VALUES (:nameActivity, :descriptionActivity, :typeActivity)');
+                $reqContent = $database->prepare('INSERT INTO activity (name_activity, description_activity, type_activity) VALUES (:name_activity, :description_activity, :type_activity)');
                 if ($type != '') {
                     $reqContent->execute(array(
-                        'nameActivity' => $titre,
-                        'descriptionActivity' => $description,
-                        'typeActivity' => $type
+                        'name_activity' => $titre,
+                        'description_activity' => $description,
+                        'type_activity' => $type
                     ));
 
-                    header('Location: ../dashboard.phtml?ajout-contenu=success');
+                    header('Location: ../dashboard.php?ajout-contenu=success');
                 } else {
                     $reqContent->execute(array(
-                        'nameActivity' => $titre,
-                        'descriptionActivity' => $description,
-                        'typeActivity' => $typeSelect
+                        'name_activity' => $titre,
+                        'description_activity' => $description,
+                        'type_activity' => $typeSelect
                     ));
 
-                    header('Location: ../dashboard.phtml?ajout-contenu=success');
+                    header('Location: ../dashboard.php?ajout-contenu=success');
                 }
                 
             } else {
-                header('Location: ../dashboard.phtml?ajout-contenu=error');
+                header('Location: ../dashboard.php?ajout-contenu=error');
             }
         } else {
-            header('Location: ../dashboard.phtml?ajout-contenu=error');
+            header('Location: ../dashboard.php?ajout-contenu=error');
         }
     } else {
-        header('Location: ../dashboard.phtml?ajout-contenu=error');
+        header('Location: ../dashboard.php?ajout-contenu=error');
     }
 ?>

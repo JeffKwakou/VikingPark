@@ -41,7 +41,7 @@
                         <select class="form-control" name="typeSelect">
                             <!-- En fonction des type qu'il y a en database -->
                             <option value="attraction">Attraction</option>
-                            <option value="activité">Activité</option>
+                            <option value="spectacle">Spectacle</option>
                             <option value="animation">Animation</option>
                         </select>
                         <input type="text" name="type" placeholder="Ajoutez un type" class="form-control"></label>
@@ -61,29 +61,33 @@
             <!-- LISTE DES CONTENUS -->
             <div>
                 <h3>Liste des contenus</h3>
+                
+                <?php foreach($activities as $activity) { ?>
+                    <div class="row">
+                        <div class="col-9">
+                            <p><?php echo $activity['name_activity']; ?></p>
+                            <p><?php echo $activity['description_activity']; ?></p>
+                        </div>
+                        <div class="col-3">
+                            <button class="btn btn-warning">Modifier</button>
+                            <a href="dashboard/deleteActivity.php?activity=<?php echo $activity['Id_activity']; ?>" class="btn btn-danger">Supprimer</a>
+                        </div>
+                    </div>
+                <?php } ?>
 
-                <div class="row">
-                    <div class="col-9">
-                        <p>Titre de l'activité</p>
-                        <p>Description de l'activité</p>
-                    </div>
-                    <div class="col-3">
-                        <button class="btn btn-warning">Modifier</button>
-                        <button class="btn btn-danger">Supprimer</button>
-                    </div>
-                </div>
             </div>
 
-            <!-- RECAPITULATIF DES NOTES -->
+            <!-- RECAPITULATIF DES NOTES -->            
             <div>
                 <h3>Récapitulatif des notes</h3>
 
+                <?php foreach($likeActivities as $likeActivity) { ?>
                 <div>
-                    <p>Titre de l'attraction</p>
-                    <p>Nombres de likes sur l'attraction</p>
+                    <p><?php echo $likeActivity['name_activity']; ?></p>
+                    <p><?php echo $likeActivity['total_note']; ?></p>
                 </div>
-            </div>
-
+                <?php } ?>
+            </div>                
         </div>
     </div>
 </body>
