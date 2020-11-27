@@ -23,25 +23,29 @@
     <main class="container">
         <section class="activite">
             <h2>Nos animations</h2>
-            <div class="row">            
+            <div class="row">  
+                <?php foreach($resultAllAnimation as $animation) { ?>              
                     <div class="col-md-4">
-                        <h3>Nom animation</h3>
+                        <h3><?php echo $animation['name_activity']; ?></h3>
                         <a href="#"><img src="./assets/images/attractions_example.jpg" alt="attraction exemple" width="100%" height="auto"></a>
                         <div class="favori"><a href="#"><img src="./assets/icone/love.svg" alt="" width="50px" width="auto"></a></div>                    
-                        <p>Description de l'animation avec un bref paragraphe</p>
+                        <p><?php echo $animation['description_activity']; ?></p>
                     </div>
+                <?php } ?>
             </div>
         </section>
 
         <section class="activite">
             <h2>Nos spectacles</h2>
-            <div class="row">            
+            <div class="row"> 
+                <?php foreach($resultAllSpectacle as $spectacle) { ?>             
                     <div class="col-md-4">
-                        <h3>Nom spectacle</h3>
+                        <h3><?php echo $spectacle['name_activity']; ?></h3>
                         <a href="#"><img src="./assets/images/attractions_example.jpg" alt="attraction exemple" width="100%" height="auto"></a>
                         <div class="favori"><a href="#"><img src="./assets/icone/love.svg" alt="" width="50px" width="auto"></a></div>                    
-                        <p>Description du spectacle avec un bref paragraphe</p>
+                        <p><?php echo $spectacle['description_activity']; ?></p>
                     </div>
+                <?php } ?>
             </div>
         </section>
     </main>

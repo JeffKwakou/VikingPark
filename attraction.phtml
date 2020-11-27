@@ -21,15 +21,18 @@
 
     <!-- LISTE DES ATTRACTIONS -->
     <main class="container" id="attraction_list">
-        <h2>Toutes nos attractions</h2>
-        <div class="row">            
+        <h2>Toutes nos attractions</h2>        
+        <div class="row" >   
+            <?php foreach($resultAllAttraction as $attraction) { ?>         
                 <div class="col-md-4">
-                    <h3>Nom attraction</h3>
+                    <h3><?php echo $attraction['name_activity']; ?></h3>
                     <a href="#"><img src="./assets/images/attractions_example.jpg" alt="attraction exemple" width="100%" height="auto"></a>
                     <div class="favori"><a href="#"><img src="./assets/icone/love.svg" alt="" width="50px" width="auto"></a></div>                    
-                    <p>Description de l'attraction avec un bref paragraphe</p>
+                    <p><?php echo $attraction['description_activity']; ?></p>
                 </div>
+            <?php } ?>
         </div>
+        
     </main>
 
     <!-- FOOTER -->

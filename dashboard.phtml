@@ -14,6 +14,7 @@
     <!-- Intégration de mes scripts & styles -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="dashboard.css">
+    <script src="dashboard.js" defer></script>
 </head>
 <body>
     <!-- HEADER -->
@@ -37,14 +38,14 @@
                     </div>
                     <div class="form-group">
                         
-                        <label for="type">Type de l'activité : 
+                        <label for="type">Type de l'activité : <a id="addNewType">+ Ajouter un type</a>
                         <select class="form-control" name="typeSelect">
                             <!-- En fonction des type qu'il y a en database -->
                             <option value="attraction">Attraction</option>
                             <option value="spectacle">Spectacle</option>
                             <option value="animation">Animation</option>
                         </select>
-                        <input type="text" name="type" placeholder="Ajoutez un type" class="form-control"></label>
+                        <input type="text" name="type" placeholder="Ajoutez un type" class="form-control" id="addType"></label>
                     </div>
 
                     <button type="submit" class="btn btn-primary mx-auto">Ajouter l'activité</button>
@@ -61,6 +62,35 @@
             <!-- LISTE DES CONTENUS -->
             <div>
                 <h3>Liste des contenus</h3>
+
+                <!-- Check si il y a un get update pour afficher le formulaire de modification -->
+                <?php 
+                    if (isset($_GET['update']) != '') {
+                        //Charger les data du contenu à modifier
+                        $updateContent = $database ->prepare("SELECT name_activity, description_activity, type_activity FROM activity WHERE Id_activity = ?");
+                        $updateContent->execute(array($_GET['update']));
+                        $dateUpdateContent = $updateContent->fetch();
+                ?>
+                    <form action="dashboard/updateContent.php?update=<?php echo $_GET['update']; ?>" method="post">
+                        <div class="form-group">
+                            <label for="titre">Titre de l'activité : 
+                            <input type="text" name="titre" value="<?php echo $dateUpdateContent['name_activity'] ?>" class="form-control"></label>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description de l'activité : 
+                            <input type="text" name="description" value="<?php echo $dateUpdateContent['description_activity'] ?>" class="form-control"></label>
+                        </div>
+                        <div class="form-group">
+                            
+                            <label for="type">Type de l'activité :
+                            <input type="text" name="type" value="<?php echo $dateUpdateContent['type_activity'] ?>" class="form-control"></label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary mx-auto">Modifier l'activité</button>
+                    </form>
+                <?php 
+                    }
+                ?>
                 
                 <?php foreach($activities as $activity) { ?>
                     <div class="row">
@@ -69,7 +99,7 @@
                             <p><?php echo $activity['description_activity']; ?></p>
                         </div>
                         <div class="col-3">
-                            <button class="btn btn-warning">Modifier</button>
+                            <a href="dashboard.php?update=<?php echo $activity['Id_activity']; ?>" class="btn btn-warning">Modifier</a>
                             <a href="dashboard/deleteActivity.php?activity=<?php echo $activity['Id_activity']; ?>" class="btn btn-danger">Supprimer</a>
                         </div>
                     </div>
