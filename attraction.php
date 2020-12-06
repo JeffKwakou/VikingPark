@@ -8,7 +8,7 @@
     }
 
     //Récupération des titres et description des attractions
-    $allAttraction = $database->query("SELECT name_activity, description_activity FROM activity WHERE type_activity = 'attraction'");
+    $allAttraction = $database->query("SELECT Id_activity, name_activity, description_activity, image_banner FROM activity WHERE type_activity = 'attraction'");
     $resultAllAttraction = $allAttraction->fetchAll();
 
     //Include de la page html attraction

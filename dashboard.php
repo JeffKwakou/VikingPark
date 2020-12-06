@@ -14,7 +14,7 @@
     $reqAllActivity = $database->query('SELECT Id_activity, name_activity, description_activity FROM activity');
     $activities = $reqAllActivity->fetchAll();
 
-    //Récupérer le ttire et le nombres de likes par attraction
+    //Récupérer le titre et le nombres de likes par attraction
     $reqLikeActivity = $database ->query('SELECT name_activity, SUM(note) AS total_note FROM activity INNER JOIN notations ON activity.Id_activity = notations.Id_activity GROUP BY name_activity');
     $likeActivities = $reqLikeActivity->fetchAll();
 

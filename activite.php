@@ -8,11 +8,11 @@
     }
 
     //Récupération des titres et description des animations
-    $allAnimations = $database->query("SELECT name_activity, description_activity FROM activity WHERE type_activity = 'animation'");
+    $allAnimations = $database->query("SELECT Id_activity, name_activity, description_activity, image_banner FROM activity WHERE type_activity = 'animation'");
     $resultAllAnimation = $allAnimations->fetchAll();
 
     //Récupération des titres et description des spectacles
-    $allSpectacles = $database->query("SELECT name_activity, description_activity FROM activity WHERE type_activity = 'spectacle'");
+    $allSpectacles = $database->query("SELECT Id_activity, name_activity, description_activity, image_banner FROM activity WHERE type_activity = 'spectacle'");
     $resultAllSpectacle = $allSpectacles->fetchAll();
 
     //Include de la page html activity

@@ -8,13 +8,13 @@
     }
 
     //Récupération des attractions
-    $reqAllAttractions = $database->query('SELECT name_activity, description_activity FROM activity WHERE type_activity = "Attraction" ORDER BY Id_Activity DESC LIMIT 3');
+    $reqAllAttractions = $database->query('SELECT name_activity, description_activity, image_banner FROM activity WHERE type_activity = "Attraction" ORDER BY Id_Activity DESC LIMIT 3');
     $attractions = $reqAllAttractions->fetchAll();
      
     $firstSlideAttraction = 1;
 
     //Récupération des activités
-    $reqAllActivities = $database->query('SELECT name_activity, description_activity FROM activity WHERE type_activity = "Spectacle" OR type_activity = "Animation" ORDER BY Id_Activity DESC LIMIT 3');
+    $reqAllActivities = $database->query('SELECT name_activity, description_activity, image_banner FROM activity WHERE type_activity = "Spectacle" OR type_activity = "Animation" ORDER BY Id_Activity DESC LIMIT 3');
     $activities = $reqAllActivities->fetchAll();
     
     $firstSlideActivity = 1;

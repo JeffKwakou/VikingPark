@@ -29,21 +29,22 @@
                 <div class="col-md-6">
                     <div>
                         <input type="text" name="nom" placeholder="NOM *">
-                    </div>
-                    <div>
-                        <input type="text" name="sujet" placeholder="SUJET *">
-                    </div>
+                    </div>                    
                     <div>
                         <input type="text" name="email" placeholder="EMAIL *">
                     </div>
                 </div>
                 
                 <div class="col-md-6">
-                <textarea placeholder="SAISISSEZ ICI VOTRE MESSAGE *" name="message"></textarea>
+                    <div>
+                        <input type="text" name="sujet" placeholder="SUJET *">
+                    </div>
+                    <textarea placeholder="SAISISSEZ ICI VOTRE MESSAGE *" name="message" rows="5"></textarea>
                 </div>
             </div>            
-
-            <button type="submit" class="btn btn-primary">Envoyer</button>
+            <div class="offset-6" id="buttonSubmit">
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+            </div>            
         </form>
     </div>
 

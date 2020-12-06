@@ -27,7 +27,7 @@
             <!-- FORMULAIRE POUR AJOUTER UN CONTENU -->
             <div>
                 <h3>Ajouter un contenu</h3>
-                <form action="dashboard/addContent.php" method="post">
+                <form action="dashboard/addContent.php" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="titre">Titre de l'activité : 
                         <input type="text" name="titre" placeholder="Ajouter un titre" class="form-control"></label>
@@ -36,8 +36,7 @@
                         <label for="description">Description de l'activité : 
                         <input type="text" name="description" placeholder="Ajoutez une description" class="form-control"></label>
                     </div>
-                    <div class="form-group">
-                        
+                    <div class="form-group">                        
                         <label for="type">Type de l'activité : <a id="addNewType">+ Ajouter un type</a>
                         <select class="form-control" name="typeSelect">
                             <!-- En fonction des type qu'il y a en database -->
@@ -46,6 +45,23 @@
                             <option value="animation">Animation</option>
                         </select>
                         <input type="text" name="type" placeholder="Ajoutez un type" class="form-control" id="addType"></label>
+                    </div>
+                    <div class="form-group">
+                        <label for="imageBanner">Image bannière : 
+                            <input type="File" name="imageBanner">
+                        </label>
+                        <label for="imageBanner">Image présentation 1 : 
+                            <input type="File" name="imageA">
+                        </label>
+                        <label for="imageBanner">Image présentation 2 : 
+                            <input type="File" name="imageB">
+                        </label>
+                        <label for="imageBanner">Image présentation 3 : 
+                            <input type="File" name="imageC">
+                        </label>
+                        <label for="imageBanner">Image présentation 4 : 
+                            <input type="File" name="imageD">
+                        </label>
                     </div>
 
                     <button type="submit" class="btn btn-primary mx-auto">Ajouter l'activité</button>
@@ -71,7 +87,7 @@
                         $updateContent->execute(array($_GET['update']));
                         $dateUpdateContent = $updateContent->fetch();
                 ?>
-                    <form action="dashboard/updateContent.php?update=<?php echo $_GET['update']; ?>" method="post">
+                    <form action="dashboard/updateContent.php?update=<?php echo $_GET['update']; ?>" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="titre">Titre de l'activité : 
                             <input type="text" name="titre" value="<?php echo $dateUpdateContent['name_activity'] ?>" class="form-control"></label>
@@ -84,6 +100,24 @@
                             
                             <label for="type">Type de l'activité :
                             <input type="text" name="type" value="<?php echo $dateUpdateContent['type_activity'] ?>" class="form-control"></label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="imageBanner">Image bannière : 
+                                <input type="File" name="imageBanner">
+                            </label>
+                            <label for="imageBanner">Image présentation 1 : 
+                                <input type="File" name="imageA">
+                            </label>
+                            <label for="imageBanner">Image présentation 2 : 
+                                <input type="File" name="imageB">
+                            </label>
+                            <label for="imageBanner">Image présentation 3 : 
+                                <input type="File" name="imageC">
+                            </label>
+                            <label for="imageBanner">Image présentation 4 : 
+                                <input type="File" name="imageD">
+                            </label>
                         </div>
 
                         <button type="submit" class="btn btn-primary mx-auto">Modifier l'activité</button>

@@ -27,7 +27,7 @@
                 <?php foreach($resultAllAnimation as $animation) { ?>              
                     <div class="col-md-4">
                         <h3><?php echo $animation['name_activity']; ?></h3>
-                        <a href="#"><img src="./assets/images/attractions_example.jpg" alt="attraction exemple" width="100%" height="auto"></a>
+                        <a href="content.php?activity=<?php echo $animation['Id_activity']; ?>"><img src="./assets/images/<?php echo $animation['image_banner']; ?>" alt="<?php echo $animation['name_activity']; ?>" width="100%" height="200px"></a>
                         <div class="favori"><a href="#"><img src="./assets/icone/love.svg" alt="" width="50px" width="auto"></a></div>                    
                         <p><?php echo $animation['description_activity']; ?></p>
                     </div>
@@ -41,7 +41,7 @@
                 <?php foreach($resultAllSpectacle as $spectacle) { ?>             
                     <div class="col-md-4">
                         <h3><?php echo $spectacle['name_activity']; ?></h3>
-                        <a href="#"><img src="./assets/images/attractions_example.jpg" alt="attraction exemple" width="100%" height="auto"></a>
+                        <a href="content.php?activity=<?php echo $spectacle['Id_activity']; ?>"><img src="./assets/images/<?php echo $spectacle['image_banner']; ?>" alt="<?php echo $spectacle['name_activity']; ?>" width="100%" height="200px"></a>
                         <div class="favori"><a href="#"><img src="./assets/icone/love.svg" alt="" width="50px" width="auto"></a></div>                    
                         <p><?php echo $spectacle['description_activity']; ?></p>
                     </div>

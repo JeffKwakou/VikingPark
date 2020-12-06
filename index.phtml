@@ -53,7 +53,7 @@
                     echo 'active';
                     $firstSlideAttraction++;
                 } ?>">
-                    <img src="./assets/images/warViking.jpg" alt="Los Angeles" width="100%" height="auto">
+                    <img src="./assets/images/<?php echo $attraction['image_banner']; ?>" alt="<?php echo $attraction['name_activity']; ?>" width="100%" height="auto">
                     <div class="carousel-caption d-none d-md-block">
                         <h5><?php echo $attraction['name_activity']; ?></h5>
                         <p><?php echo substr($attraction['description_activity'], 0, 45).'...'; ?></p>
@@ -99,27 +99,13 @@
                     echo 'active';
                     $firstSlideActivity++;
                 } ?>">
-                    <img src="./assets/images/warViking.jpg" alt="Los Angeles" width="100%" height="auto">
+                    <img src="./assets/images/<?php echo $activity['image_banner']; ?>" alt="<?php echo $activity['name_activity']; ?>" width="100%" height="auto">
                     <div class="carousel-caption d-none d-md-block">
                         <h5><?php echo $activity['name_activity']; ?></h5>
                         <p><?php echo substr($activity['description_activity'], 0, 45).'...'; ?></p>
                     </div>
                 </div>
                 <?php } ?>
-                <!-- <div class="carousel-item">
-                    <img src="./assets/images/bateauViking.jpg" alt="Los Angeles" width="100%" height="auto">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Titre de l'activité</h5>
-                        <p>Phrase d'accroche pour l'activité</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="./assets/images/warViking.jpg" alt="Los Angeles" width="100%" height="auto">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Titre de l'activité</h5>
-                        <p>Phrase d'accroche pour l'activité</p>
-                    </div>
-                </div> -->
                 </div>
 
                 <!-- Left and right controls -->
