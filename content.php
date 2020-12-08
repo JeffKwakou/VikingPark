@@ -14,6 +14,11 @@
         $activitySelected->execute(array($_GET['activity']));
         $activityContent = $activitySelected->fetch();
 
+        //Sélection des commentaires de l'activité
+        $commentActivity = $database->prepare("SELECT commentaire, pseudo, date_post FROM commentaires WHERE Id_activity = ?");
+        $commentActivity->execute(array($_GET['activity']));
+        $allCommentaries = $commentActivity->fetchAll();
+
         //Include de la page content
         include 'content.phtml';
     } else { 

@@ -99,6 +99,43 @@
                 <span class="carousel-control-next-icon"></span>
             </a>
         </div>
+
+        <!-- SECTION COMMENTAIRE -->
+        <section>
+            <!-- Formulaire pour commenter l'activité -->
+            <form action="content/commentaire.php?activity=<?php echo $activityContent['Id_activity']; ?>" method="post">
+                <div>
+                    <label for="">Pseudo :
+                        <input type="text" name="pseudo" value="<?php if (isset($_SESSION['pseudo'])) {
+                            echo $_SESSION['pseudo'];
+                        } ?>">
+                    </label>
+                </div>                
+                
+                <div>
+                    <label for="">Commentaires :</label> 
+                        <textarea name="commentaire" id="" cols="30" rows="10"></textarea>
+                    
+                </div>                               
+
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+            </form>
+
+            <!-- Affichage des commentaires -->
+            <div>
+                <table class="table">
+                    <tbody>
+                        <?php foreach($allCommentaries as $comment) { ?>
+                        <tr>
+                            <td class="pseudoStrong"><?php echo $comment['pseudo']; ?></td>
+                            <td><?php echo $comment['commentaire']; ?><br>
+                            <span class="post_date"><?php echo $comment['date_post']; ?></span></td>
+                        </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+        </section>
     </main>
 
     <!-- FOOTER -->
