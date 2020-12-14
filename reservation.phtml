@@ -19,9 +19,56 @@
     <!-- HEADER -->
     <?php include 'include/header.phtml' ?>
 
-    <div class="container">
+    <div class="container" id="reservation">
         <h2>Pré-réservez votre billet</h2>
+
         <p>Précommander directement votre billet pour être dans les premiers à découvrir votre nouveau parc viking</p>
+
+        <!-- Formulaire de connexion et inscription si pas connecté -->
+        <?php if (!isset($_SESSION['id'])) { ?>
+            <!-- Connexion -->
+            <h2>Connexion</h2>
+            <form action="./authentification/connexion_check.php" method="post">
+                    <!-- Créer les inputs pseudo et password -->
+                    <div class="form-group">
+                        <label for="pseudo">Pseudo : 
+                        <input type="text" name="pseudo" placeholder="Entrez votre pseudo" class="form-control"></label>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Mot de passe : 
+                        <input type="password" name="password" placeholder="Entrez votre mot de passe" class="form-control"></label>
+                    </div>
+
+                    <!-- Bouton pour se connecter -->
+                    <button type="submit" class="btn btn-primary">Se connecter</button>
+            </form>
+
+            <!-- Inscription -->
+            <h2>Inscription</h2>
+            <form action="authentification/inscription_check.php" method="post" class="col-md-6 offset-md-3">
+                <div class="form-group">
+                    <label for="email">Email : 
+                        <input type="text" name="email" placeholder="Entrez votre email *" class="form-control">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="pseudo">Pseudo : 
+                        <input type="text" name="pseudo" placeholder="Entrez votre pseudo *" class="form-control">
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe : 
+                        <input type="password" name="password" placeholder="Entrez votre mot de passe *" class="form-control">
+                    </label>                    
+                </div> 
+                <div class="form-group">
+                    <label for="passwordConfirm">Confirmation du mot de passe : 
+                        <input type="password" name="passwordConfirm" placeholder="Entrez de nouveau votre mot de passe *" class="form-control">
+                    </label>
+                </div> 
+                <button type="submit" class="btn btn-primary">S'incrire</button>
+            </form>
+        <?php } ?>
 
         <h3>Billet 1 jour</h3>
         <p>Nous remboursons les billets des personnes de moins de 1 mètre à l'entrée du parc <br>
@@ -29,7 +76,8 @@
         Le billet adulte : 20 € <span class="lineThrough">au lieu de 25 €</span><br>
         Le billet adulte : 15 € <span class="lineThrough">au lieu de 20 €</span><br>
         Le billet famille : 65 € <span class="lineThrough">au lieu de 70 €</span><br></p>
-        <form action="">
+
+        <form action="confirmReservation.php" method="post">
             <table>
                     <tr>
                         <th></th>
@@ -38,8 +86,8 @@
                     </tr>
                     <tr>
                         <td>Billet 1J Adulte</td>
-                        <td><input type="hidden" value="20">20,00 €</td>
-                        <td><select name="" id="">
+                        <td><input type="hidden" name="billetAdulte" value="20">20,00 €</td>
+                        <td><select name="nbAdulte" id="">
                             <option value="0" selected="selected">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -55,8 +103,8 @@
                     </tr>
                     <tr>
                         <td>Billet 1J Enfant</td>
-                        <td><input type="hidden" value="15">15,00 €</td>
-                        <td><select name="" id="">
+                        <td><input type="hidden" name="billetEnfant" value="15">15,00 €</td>
+                        <td><select name="nbEnfant" id="">
                             <option value="0" selected="selected">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -72,8 +120,8 @@
                     </tr>
                     <tr>
                         <td>Billet 1J Famille</td>
-                        <td><input type="hidden" value="65">65,00 €</td>
-                        <td><select name="" id="">
+                        <td><input type="hidden" name="billetFamille" value="65">65,00 €</td>
+                        <td><select name="nbFamille" id="">
                             <option value="0" selected="selected">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -88,6 +136,12 @@
                         </select></td>
                     </tr>
             </table>
+
+            <div>
+                <label for="">Date de réservation :
+                    <input type="date" name="date">                
+                </label>
+            </div>            
 
             <button type="submit">Envoyer</button>
         </form>

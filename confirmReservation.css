@@ -32,6 +32,10 @@
     src: url('./assets/fonts/PT_Serif/PTSerif-Bold.ttf') format('truetype');
 }
 
-#reservation {
+#confirmReservation {
     margin-top: 150px;
+}
+
+#date {
+    font-family: 'openSans-bold';
 }

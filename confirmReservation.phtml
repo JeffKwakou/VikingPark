@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+     <!-- Intégration de Bootstrap -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Intégration de mes scripts & styles -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="confirmReservation.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <?php include 'include/header.phtml' ?>
+
+    <!-- CONTENU -->
+    <div class="container" id="confirmReservation">
+        <h2>Confirmation de la réservation</h2>
+        <h3>Récapitulatif de la réservation</h3>
+        <p>Vous venez de réserver des billets pour le Valhalla Park pour le <span id="date"><?php echo $date; ?></span>. Merci de nous confirmer que les informations soient corrects !</p>
+
+        <p>Prix billet Enfant : <?php echo $prixEnfant . " x " . $nbEnfant . " = " . $resultEnfant . "€"; ?><br>
+        Prix billet Adulte : <?php echo $prixAdulte . " x " . $nbAdulte . " = " . $resultAdulte . "€"; ?><br>
+        Prix billet Famille : <?php echo $prixFamille . " x " . $nbFamille . " = " . $resultFamille . "€"; ?>
+        </p>
+
+        <p>TOTAL : <?php echo $total . "€"; ?></p>
+
+        <!-- Annulation de la réservation -> reservation.phtml -->
+        <a href="reservation.phtml?reservation=annuler" type="button" class="btn btn-danger">Annuler</a>
+
+        <!-- Confirmation de la réservation -> ? -->
+        <a href="saveReservation.php?quantity=<?php echo $nbEnfant + $nbAdulte + $nbFamille.'&date='.$date; ?>" type="button" class="btn btn-success">Confirmer</a>
+    </div>
+
+    <!-- FOOTER -->
+    <?php include 'include/footer.phtml' ?>
+</body>
+</html>

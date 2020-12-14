@@ -137,7 +137,7 @@ header {
     margin-bottom: 25px;
 }
 
-#banniere button {
+#banniere a {
     font-family: "openSans-bold";
     text-transform: uppercase;
     background-color: var(--turquoise-color);
@@ -146,7 +146,7 @@ header {
     padding: 10px 20px;
 }
 
-#banniere button:hover {
+#banniere a:hover {
     background-color: transparent;
     color: var(--turquoise-color);
     border: solid 3px var(--turquoise-color);
