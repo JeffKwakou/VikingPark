@@ -64,7 +64,7 @@
     <section id="social">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6" id="socialNetwork">
                     <h2>Réseaux Sociaux</h2>
                     <p>Rejoingez-nous sur les réseaux sociaux et partagez vos attractions préférées avec vos ami(e)s.</p>
                     <div>
@@ -76,7 +76,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" id="newsletter">
                     <h2>Newsletter</h2>
                     <p>Restez au courant des actualités du parc et profitez de promotions exclusives</p>
                     <form action="contact/newsletter.php" method="post" class="form-group row">
@@ -113,7 +113,7 @@
             }, 3000);
         }
 
-        <?php if (isset($_GET['message']) AND $_GET['message'] == 'valide') { ?>
+        <?php if (isset($_GET['message']) and $_GET['message'] == 'valide') { ?>
             //Lance le snackbar au chargement de la page
             window.onload = myFunction;
         <?php } ?>

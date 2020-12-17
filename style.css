@@ -228,6 +228,14 @@ header {
   width: auto;
 }
 
+#socialNetwork {
+  margin-bottom: 30px;
+}
+
+#newsletter {
+  margin-bottom: 30px;
+}
+
 /* FOOTER */
 footer {
   background-color: var(--blue-color);

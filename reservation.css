@@ -35,3 +35,56 @@
 #reservation {
     margin-top: 150px;
 }
+
+label {
+    width: 100%;
+}
+
+input {
+    width: 100%;
+    font-size: 0.9em;
+    height: 50px;
+}
+
+#connexion {
+    margin-bottom: 50px;
+}
+
+#inscription {
+    margin-bottom: 50px;
+}
+
+.center {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h3 {
+    font-size: 1.3em;
+    margin-bottom: 20px;
+}
+
+#descriptionBillet {
+    margin-bottom: 40px;
+}
+
+.lineThrough {
+    text-decoration: line-through;
+}
+
+#form_date {
+    margin-bottom: 20px;
+}
+
+.mx-auto {
+    text-align: center;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+#error {
+    text-align: center;
+    color: red;
+}

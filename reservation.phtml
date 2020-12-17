@@ -24,141 +24,163 @@
     <div class="container" id="reservation">
         <h2>Pré-réservez votre billet</h2>
 
-        <p>Précommander directement votre billet pour être dans les premiers à découvrir votre nouveau parc viking</p>
+        <p class="center">Précommander directement votre billet pour être dans les premiers à découvrir votre nouveau parc viking</p>
 
         <!-- Formulaire de connexion et inscription si pas connecté -->
         <?php if (!isset($_SESSION['id'])) { ?>
-            <!-- Connexion -->
-            <h2>Connexion</h2>
-            <form action="./authentification/connexion_check.php" method="post">
-                <!-- Créer les inputs pseudo et password -->
-                <div class="form-group">
-                    <label for="pseudo">Pseudo :
-                        <input type="text" name="pseudo" placeholder="Entrez votre pseudo" class="form-control"></label>
-                </div>
-                <div class="form-group">
-                    <label for="password">Mot de passe :
-                        <input type="password" name="password" placeholder="Entrez votre mot de passe" class="form-control"></label>
+            <div class="row" id="authentification">
+                <!-- Connexion -->
+                <div class="col-md-6" id="connexion">
+                    <h3>Connexion</h3>
+                    <form action="./authentification/connexion_check.php" method="post">
+                        <!-- Créer les inputs pseudo et password -->
+                        <div class="form-group">
+                            <label for="pseudo">Pseudo :
+                                <input type="text" name="pseudo" placeholder="Entrez votre pseudo" class="form-control"></label>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Mot de passe :
+                                <input type="password" name="password" placeholder="Entrez votre mot de passe" class="form-control"></label>
+                        </div>
+
+                        <!-- Bouton pour se connecter -->
+                        <div class="mx-auto">
+                            <button type="submit" class="btn btn-primary">Se connecter</button>
+                        </div>
+
+                    </form>
                 </div>
 
-                <!-- Bouton pour se connecter -->
-                <button type="submit" class="btn btn-primary">Se connecter</button>
-            </form>
+                <!-- Inscription -->
+                <div class="col-md-6" id="inscription">
+                    <h3>Inscription</h3>
+                    <form action="authentification/inscription_check.php" method="post">
+                        <div class="form-group">
+                            <label for="email">Email :
+                                <input type="text" name="email" placeholder="Entrez votre email *" class="form-control">
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="pseudo">Pseudo :
+                                <input type="text" name="pseudo" placeholder="Entrez votre pseudo *" class="form-control">
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Mot de passe :
+                                <input type="password" name="password" placeholder="Entrez votre mot de passe *" class="form-control">
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="passwordConfirm">Confirmation du mot de passe :
+                                <input type="password" name="passwordConfirm" placeholder="Entrez de nouveau votre mot de passe *" class="form-control">
+                            </label>
+                        </div>
 
-            <!-- Inscription -->
-            <h2>Inscription</h2>
-            <form action="authentification/inscription_check.php" method="post" class="col-md-6 offset-md-3">
-                <div class="form-group">
-                    <label for="email">Email :
-                        <input type="text" name="email" placeholder="Entrez votre email *" class="form-control">
-                    </label>
+                        <div class="mx-auto">
+                            <button type="submit" class="btn btn-primary">S'incrire</button>
+                        </div>
+
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="pseudo">Pseudo :
-                        <input type="text" name="pseudo" placeholder="Entrez votre pseudo *" class="form-control">
-                    </label>
-                </div>
-                <div class="form-group">
-                    <label for="password">Mot de passe :
-                        <input type="password" name="password" placeholder="Entrez votre mot de passe *" class="form-control">
-                    </label>
-                </div>
-                <div class="form-group">
-                    <label for="passwordConfirm">Confirmation du mot de passe :
-                        <input type="password" name="passwordConfirm" placeholder="Entrez de nouveau votre mot de passe *" class="form-control">
-                    </label>
-                </div>
-                <button type="submit" class="btn btn-primary">S'incrire</button>
-            </form>
+            </div>
         <?php } ?>
 
         <h3>Billet 1 jour</h3>
-        <p>Nous remboursons les billets des personnes de moins de 1 mètre à l'entrée du parc <br>
-            Economisez -5 € par billet acheté sur le site <br>
-            Le billet adulte : 20 € <span class="lineThrough">au lieu de 25 €</span><br>
-            Le billet adulte : 15 € <span class="lineThrough">au lieu de 20 €</span><br>
-            Le billet famille : 65 € <span class="lineThrough">au lieu de 70 €</span><br></p>
+        <div class="col-md-8 offset-md-2">
+            <p id="descriptionBillet">Nous remboursons les billets des personnes de moins de 1 mètre à l'entrée du parc<br>
+                Economisez -5 € par billet acheté sur le site <br>
+                Le billet adulte : 20 € <span class="lineThrough">au lieu de 25 €</span><br>
+                Le billet adulte : 15 € <span class="lineThrough">au lieu de 20 €</span><br>
+                Le billet famille : 65 € <span class="lineThrough">au lieu de 70 €</span><br></p>
 
-        <form action="confirmReservation.php" method="post">
-            <table>
-                <tr>
-                    <th></th>
-                    <th>Prix</th>
-                    <th>Quantité</th>
-                </tr>
-                <tr>
-                    <td>Billet 1J Adulte</td>
-                    <td><input type="hidden" name="billetAdulte" value="20">20,00 €</td>
-                    <td><select name="nbAdulte" id="">
-                            <option value="0" selected="selected">0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select></td>
-                </tr>
-                <tr>
-                    <td>Billet 1J Enfant</td>
-                    <td><input type="hidden" name="billetEnfant" value="15">15,00 €</td>
-                    <td><select name="nbEnfant" id="">
-                            <option value="0" selected="selected">0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select></td>
-                </tr>
-                <tr>
-                    <td>Billet 1J Famille</td>
-                    <td><input type="hidden" name="billetFamille" value="65">65,00 €</td>
-                    <td><select name="nbFamille" id="">
-                            <option value="0" selected="selected">0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select></td>
-                </tr>
-            </table>
+            <form action="confirmReservation.php" method="post">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th></th>
+                            <th>Prix</th>
+                            <th>Quantité</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Billet 1J Adulte</td>
+                            <td><input type="hidden" name="billetAdulte" value="20">20,00€</td>
+                            <td><select name="nbAdulte" id="">
+                                    <option value="0" selected="selected">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select></td>
+                        </tr>
+                        <tr>
+                            <td>Billet 1J Enfant</td>
+                            <td><input type="hidden" name="billetEnfant" value="15">15,00€</td>
+                            <td><select name="nbEnfant" id="">
+                                    <option value="0" selected="selected">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select></td>
+                        </tr>
+                        <tr>
+                            <td>Billet 1J Famille</td>
+                            <td><input type="hidden" name="billetFamille" value="65">65,00€</td>
+                            <td><select name="nbFamille" id="">
+                                    <option value="0" selected="selected">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select></td>
+                        </tr>
+                    </tbody>
+                </table>
 
-            <div>
-                <label for="">Date de réservation :
-                    <input type="date" name="date">
-                </label>
-            </div>
+                <div id="form_date">
+                    <label for="date">Date de réservation :
+                        <input type="date" name="date" class="form-control">
+                    </label>
+                </div>
 
-            <button type="submit">Envoyer</button>
-            <p><?php
-                if (isset($_GET['prix']) and $_GET['prix'] == 'error') {
-                    echo 'Veuillez prendre au minimum une place';
-                }
-                if (isset($_GET['date']) and $_GET['date'] == 'error') {
-                    echo 'Sélectionnez une date valide';
-                }
-                if (isset($_GET['connexion']) and $_GET['connexion'] == 'error') {
-                    echo 'Veuillez vous connecter';
-                }
-                ?>
+                <div class="mx-auto">
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                </div>
+            </form>
+
+            <p id="error"><?php
+                            if (isset($_GET['prix']) and $_GET['prix'] == 'error') {
+                                echo 'Veuillez prendre au minimum une place';
+                            }
+                            if (isset($_GET['date']) and $_GET['date'] == 'error') {
+                                echo 'Sélectionnez une date valide';
+                            }
+                            if (isset($_GET['connexion']) and $_GET['connexion'] == 'error') {
+                                echo 'Veuillez vous connecter';
+                            }
+                            ?>
             </p>
-        </form>
+        </div>
     </div>
 
     <!-- SNACKBAR -->
@@ -170,10 +192,10 @@
         if (isset($_GET['reservation']) and $_GET['reservation'] == 'annuler') {
             echo 'Votre réservation a été annulé';
         }
-        if (isset($_GET['confirm-reservation']) AND $_GET['confirm-reservation'] == 'error') {
+        if (isset($_GET['confirm-reservation']) and $_GET['confirm-reservation'] == 'error') {
             echo 'Un problème est survenu lors de votre réservation';
         }
-        if (isset($_GET['reservation']) AND $_GET['reservation'] == 'success') {
+        if (isset($_GET['reservation']) and $_GET['reservation'] == 'success') {
             echo 'Votre réservation a été pris en compte';
         }
         ?>
@@ -194,10 +216,12 @@
             }, 3000);
         }
 
-        <?php if (isset($_GET['quantityticket']) AND $_GET['quantityticket'] == 'error' 
-        or isset($_GET['reservation']) AND $_GET['reservation'] == 'annuler'
-        or isset($_GET['confirm-reservation']) AND $_GET['confirm-reservation'] == 'error'
-        or isset($_GET['reservation']) AND $_GET['reservation'] == 'success') { ?>
+        <?php if (
+            isset($_GET['quantityticket']) and $_GET['quantityticket'] == 'error'
+            or isset($_GET['reservation']) and $_GET['reservation'] == 'annuler'
+            or isset($_GET['confirm-reservation']) and $_GET['confirm-reservation'] == 'error'
+            or isset($_GET['reservation']) and $_GET['reservation'] == 'success'
+        ) { ?>
             //Lance le snackbar au chargement de la page
             window.onload = myFunction;
         <?php } ?>

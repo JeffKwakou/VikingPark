@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-     <!-- Intégration de Bootstrap -->
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Intégration de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -15,6 +16,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="confirmReservation.css">
 </head>
+
 <body>
     <!-- HEADER -->
     <?php include 'include/header.phtml' ?>
@@ -22,24 +24,56 @@
     <!-- CONTENU -->
     <div class="container" id="confirmReservation">
         <h2>Confirmation de la réservation</h2>
-        <h3>Récapitulatif de la réservation</h3>
-        <p>Vous venez de réserver des billets pour le Valhalla Park pour le <span id="date"><?php echo $date; ?></span>. Merci de nous confirmer que les informations soient corrects !</p>
-
-        <p>Prix billet Enfant : <?php echo $prixEnfant . " x " . $nbEnfant . " = " . $resultEnfant . "€"; ?><br>
-        Prix billet Adulte : <?php echo $prixAdulte . " x " . $nbAdulte . " = " . $resultAdulte . "€"; ?><br>
-        Prix billet Famille : <?php echo $prixFamille . " x " . $nbFamille . " = " . $resultFamille . "€"; ?>
+        <p id="description_confirmation" class="center">Après la confirmation de votre réservation, vous aurez toujours la possibilité de l'annuler en allant dans le tableau de bord de votre compte. Pour toutes autres réclamations
+            vous pouvez nous contacter via la partie contact du site.
         </p>
 
-        <p>TOTAL : <?php echo $total . "€"; ?></p>
+        <h3>Récapitulatif de la réservation</h3>
+        <p class="center">Vous venez de réserver des billets pour le Valhalla Park pour le <span id="date"><?php echo $date; ?></span>. Merci de nous confirmer que les informations soient corrects !</p>
 
-        <!-- Annulation de la réservation -> reservation.phtml -->
-        <a href="reservation.phtml?reservation=annuler" type="button" class="btn btn-danger">Annuler</a>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Type de billet</th>
+                    <th>Nombre de place</th>
+                    <th>Total prix</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Billet Enfant</td>
+                    <td><?php echo  $nbEnfant . " place(s) ont été sélectionnées"; ?></td>
+                    <td><?php echo $resultEnfant . "€"; ?></td>
+                </tr>
+                <tr>
+                    <td>Billet Adulte</td>
+                    <td><?php echo  $nbAdulte . " place(s) ont été sélectionnées"; ?></td>
+                    <td><?php echo $resultAdulte . "€"; ?></td>
+                </tr>
+                <tr>
+                    <td>Billet Famille</td>
+                    <td><?php echo  $nbFamille . " place(s) ont été sélectionnées"; ?></td>
+                    <td><?php echo $resultFamille . "€"; ?></td>
+                </tr>
+            </tbody>
+            <thead class="thead-light">
+                <tr>
+                    <th>TOTAL</th>
+                    <th><?php echo  $nbEnfant + $nbAdulte + $nbFamille . " place(s) ont été sélectionnées"; ?></th>
+                    <th><?php echo $total . "€"; ?></th>
+                </tr>
+            </thead>
+        </table>
 
-        <!-- Confirmation de la réservation -> ? -->
-        <a href="saveReservation.php?quantity=<?php echo $nbEnfant + $nbAdulte + $nbFamille.'&date='.$date; ?>" type="button" class="btn btn-success">Confirmer</a>
+        <div id="button">
+            <!-- Annulation de la réservation -> reservation.phtml -->
+            <a href="reservation.phtml?reservation=annuler" type="button" class="btn btn-danger">Annuler</a>
+
+            <!-- Confirmation de la réservation -> ? -->
+            <a href="saveReservation.php?quantity=<?php echo $nbEnfant + $nbAdulte + $nbFamille . '&date=' . $date; ?>" type="button" class="btn btn-success">Confirmer</a>
+        </div>
+
     </div>
-
-    <!-- FOOTER -->
-    <?php include 'include/footer.phtml' ?>
 </body>
+
 </html>
