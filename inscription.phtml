@@ -48,7 +48,10 @@
                 <button type="submit" class="btn btn-primary">S'incrire</button>
             </form>
 
-            <p id="error" class="offset-md-3"><?php if (isset($_GET['value']) == 'error' OR isset($_GET['champs']) == 'error') {
+            <!-- Gestion des erreurs -->
+            <p id="error" class="offset-md-3">
+                <?php 
+                    if (isset($_GET['value']) == 'error' OR isset($_GET['champs']) == 'error') {
                         echo 'Veuillez remplir les champs';
                     } 
                     if (isset($_GET['password']) == 'error') {
@@ -56,7 +59,9 @@
                     } 
                     if (isset($_GET['pseudo']) == 'error') {
                         echo 'Ce pseudo existe déjà';
-                    } ?></p>
+                    } 
+                ?>
+            </p>
         </div>
     </div>
 </body>

@@ -15,7 +15,7 @@
     $resultat = $request->fetch();
     
 
-    //Vérification si le pseudo est valide
+    //Vérification si le pseudo est pas dans la database
     if ($resultat == false) {
         header('Location: ../connexion.phtml?connexion=error');
     } else {
@@ -32,6 +32,7 @@
             $_SESSION['type'] = $resultat['role_user'];
             header('Location: ../index.phtml');
         } else {
+            //Si le mot de passe est mauvais
             header('Location: ../connexion.phtml?connexion=error');
         }
     }

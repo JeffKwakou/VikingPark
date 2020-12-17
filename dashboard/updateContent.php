@@ -87,7 +87,7 @@
                 'Id_activity' => $idContent
             ));
 
-            header('Location: ../dashboard.php?update-content=success');
+            header('Location: ../dashboard.php?update=success');
             
         } else {
             header('Location: ../dashboard.php?update-content=error');

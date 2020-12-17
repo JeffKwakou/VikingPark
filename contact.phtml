@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="contact.css">
 </head>
+
 <body>
     <!-- HEADER -->
     <?php include 'include/header.phtml' ?>
@@ -23,28 +25,38 @@
     <div class="container" id="contact">
         <h2>Contactez-nous !</h2>
         <p>Vous avez des questions ? Vous souhaitez en savoir plus sur le park ? <br>
-        N'hésitez pas à nous laissez une message, nous vous répondrons dans les plus brefs délais.</p>
+            N'hésitez pas à nous laissez une message, nous vous répondrons dans les plus brefs délais.</p>
         <form action="contact/sendMail.php" method="post">
             <div class="row">
                 <div class="col-md-6">
                     <div>
                         <input type="text" name="nom" placeholder="NOM *">
-                    </div>                    
+                    </div>
                     <div>
                         <input type="text" name="email" placeholder="EMAIL *">
                     </div>
                 </div>
-                
+
                 <div class="col-md-6">
                     <div>
                         <input type="text" name="sujet" placeholder="SUJET *">
                     </div>
                     <textarea placeholder="SAISISSEZ ICI VOTRE MESSAGE *" name="message" rows="5"></textarea>
                 </div>
-            </div>            
+            </div>
             <div class="offset-6" id="buttonSubmit">
                 <button type="submit" class="btn btn-primary">Envoyer</button>
-            </div>            
+            </div>
+            <!-- Gestion des erreurs -->
+            <p>
+                <?php
+                if (isset($_GET['message'])) {
+                    if ($_GET['message'] == 'error') {
+                        echo 'Veuillez remplir tous les champs';
+                    }
+                }
+                ?>
+            </p>
         </form>
     </div>
 
@@ -73,12 +85,43 @@
                         <button type="submit" class="btn btn-primary col-3" id="btnNewsletter">S'abonner</button>
                     </form>
                 </div>
-            </div>            
+            </div>
         </div>
-        </section>
+    </section>
+
+    <!-- SNACKBAR -->
+    <div id="snackbar">
+        <?php
+        if (isset($_GET['message']) == 'valide') {
+            echo 'Votre message a bien été envoyé';
+        }
+        ?>
+    </div>
+
+    <!-- Script pour lancer le toast -->
+    <script>
+        function myFunction() {
+            // Get the snackbar DIV
+            var x = document.getElementById("snackbar");
+
+            // Add the "show" class to DIV
+            x.className = "show";
+
+            // After 3 seconds, remove the show class from DIV
+            setTimeout(function() {
+                x.className = x.className.replace("show", "");
+            }, 3000);
+        }
+
+        <?php if (isset($_GET['message']) AND $_GET['message'] == 'valide') { ?>
+            //Lance le snackbar au chargement de la page
+            window.onload = myFunction;
+        <?php } ?>
+    </script>
 
     <!-- FOOTER -->
     <?php include 'include/footer.phtml' ?>
-    
+
 </body>
+
 </html>

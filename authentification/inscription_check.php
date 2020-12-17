@@ -49,7 +49,7 @@
                         'Id_userComplement' => $idComplement
                     ));
 
-                    header('Location: ../index.phtml?inscription=valide');
+                    header('Location: ../index.php?inscription=valide');
 
                 } else {
                     header('Location: ../inscription.phtml?pseudo=error');

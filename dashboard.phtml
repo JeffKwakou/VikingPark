@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +17,7 @@
     <link rel="stylesheet" href="dashboard.css">
     <script src="dashboard.js" defer></script>
 </head>
+
 <body>
     <!-- HEADER -->
     <?php include 'include/header.phtml' ?>
@@ -29,50 +31,51 @@
                 <h3>Ajouter un contenu</h3>
                 <form action="dashboard/addContent.php" method="post" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label for="titre">Titre de l'activité : 
-                        <input type="text" name="titre" placeholder="Ajouter un titre" class="form-control"></label>
+                        <label for="titre">Titre de l'activité :
+                            <input type="text" name="titre" placeholder="Ajouter un titre" class="form-control"></label>
                     </div>
                     <div class="form-group">
-                        <label for="description">Description de l'activité : 
-                        <input type="text" name="description" placeholder="Ajoutez une description" class="form-control"></label>
+                        <label for="description">Description de l'activité :
+                            <input type="text" name="description" placeholder="Ajoutez une description" class="form-control"></label>
                     </div>
-                    <div class="form-group">                        
+                    <div class="form-group">
                         <label for="type">Type de l'activité : <a id="addNewType">+ Ajouter un type</a>
-                        <select class="form-control" name="typeSelect">
-                            <!-- En fonction des type qu'il y a en database -->
-                            <option value="attraction">Attraction</option>
-                            <option value="spectacle">Spectacle</option>
-                            <option value="animation">Animation</option>
-                        </select>
-                        <input type="text" name="type" placeholder="Ajoutez un type" class="form-control" id="addType"></label>
+                            <select class="form-control" name="typeSelect">
+                                <!-- En fonction des type qu'il y a en database -->
+                                <option value="attraction">Attraction</option>
+                                <option value="spectacle">Spectacle</option>
+                                <option value="animation">Animation</option>
+                            </select>
+                            <input type="text" name="type" placeholder="Ajoutez un type" class="form-control" id="addType"></label>
                     </div>
                     <div class="form-group">
-                        <label for="imageBanner">Image bannière : 
+                        <label for="imageBanner">Image bannière :
                             <input type="File" name="imageBanner">
                         </label>
-                        <label for="imageBanner">Image présentation 1 : 
+                        <label for="imageBanner">Image présentation 1 :
                             <input type="File" name="imageA">
                         </label>
-                        <label for="imageBanner">Image présentation 2 : 
+                        <label for="imageBanner">Image présentation 2 :
                             <input type="File" name="imageB">
                         </label>
-                        <label for="imageBanner">Image présentation 3 : 
+                        <label for="imageBanner">Image présentation 3 :
                             <input type="File" name="imageC">
                         </label>
-                        <label for="imageBanner">Image présentation 4 : 
+                        <label for="imageBanner">Image présentation 4 :
                             <input type="File" name="imageD">
                         </label>
                     </div>
 
                     <button type="submit" class="btn btn-primary mx-auto">Ajouter l'activité</button>
                 </form>
-                <p><?php 
-                    if (isset($_GET['ajout-contenu']) AND $_GET['ajout-contenu'] == 'error') {
-                        echo 'Probleme lors de l ajout du contenu';
-                    } else if (isset($_GET['ajout-contenu']) AND $_GET['ajout-contenu'] == 'success') {
-                        echo 'Ajout pris en compte';
+                <p><?php
+                    if (isset($_GET['ajout-contenu']) and $_GET['ajout-contenu'] == 'error') {
+                        echo 'Veuillez remplir tous les champs';
                     }
-                ?></p>
+                    if (isset($_GET['ajout-titre']) and $_GET['ajout-titre'] == 'error') {
+                        echo 'Cette activité existe déjà';
+                    }
+                    ?></p>
             </div>
 
             <!-- LISTE DES CONTENUS -->
@@ -80,53 +83,58 @@
                 <h3>Liste des contenus</h3>
 
                 <!-- Check si il y a un get update pour afficher le formulaire de modification -->
-                <?php 
-                    if (isset($_GET['update']) != '') {
-                        //Charger les data du contenu à modifier
-                        $updateContent = $database ->prepare("SELECT name_activity, description_activity, type_activity FROM activity WHERE Id_activity = ?");
-                        $updateContent->execute(array($_GET['update']));
-                        $dateUpdateContent = $updateContent->fetch();
+                <?php
+                if (isset($_GET['update']) != '') {
+                    //Charger les data du contenu à modifier
+                    $updateContent = $database->prepare("SELECT name_activity, description_activity, type_activity FROM activity WHERE Id_activity = ?");
+                    $updateContent->execute(array($_GET['update']));
+                    $dateUpdateContent = $updateContent->fetch();
                 ?>
                     <form action="dashboard/updateContent.php?update=<?php echo $_GET['update']; ?>" method="post" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label for="titre">Titre de l'activité : 
-                            <input type="text" name="titre" value="<?php echo $dateUpdateContent['name_activity'] ?>" class="form-control"></label>
+                            <label for="titre">Titre de l'activité :
+                                <input type="text" name="titre" value="<?php echo $dateUpdateContent['name_activity'] ?>" class="form-control"></label>
                         </div>
                         <div class="form-group">
-                            <label for="description">Description de l'activité : 
-                            <input type="text" name="description" value="<?php echo $dateUpdateContent['description_activity'] ?>" class="form-control"></label>
+                            <label for="description">Description de l'activité :
+                                <input type="text" name="description" value="<?php echo $dateUpdateContent['description_activity'] ?>" class="form-control"></label>
                         </div>
                         <div class="form-group">
-                            
+
                             <label for="type">Type de l'activité :
-                            <input type="text" name="type" value="<?php echo $dateUpdateContent['type_activity'] ?>" class="form-control"></label>
+                                <input type="text" name="type" value="<?php echo $dateUpdateContent['type_activity'] ?>" class="form-control"></label>
                         </div>
 
                         <div class="form-group">
-                            <label for="imageBanner">Image bannière : 
+                            <label for="imageBanner">Image bannière :
                                 <input type="File" name="imageBanner">
                             </label>
-                            <label for="imageBanner">Image présentation 1 : 
+                            <label for="imageBanner">Image présentation 1 :
                                 <input type="File" name="imageA">
                             </label>
-                            <label for="imageBanner">Image présentation 2 : 
+                            <label for="imageBanner">Image présentation 2 :
                                 <input type="File" name="imageB">
                             </label>
-                            <label for="imageBanner">Image présentation 3 : 
+                            <label for="imageBanner">Image présentation 3 :
                                 <input type="File" name="imageC">
                             </label>
-                            <label for="imageBanner">Image présentation 4 : 
+                            <label for="imageBanner">Image présentation 4 :
                                 <input type="File" name="imageD">
                             </label>
                         </div>
 
                         <button type="submit" class="btn btn-primary mx-auto">Modifier l'activité</button>
+                        <p><?php
+                            if (isset($_GET['update-content']) and $_GET['update-content'] == 'error') {
+                                echo 'Veuillez remplir tous les champs';
+                            }
+                            ?></p>
                     </form>
-                <?php 
-                    }
+                <?php
+                }
                 ?>
-                
-                <?php foreach($activities as $activity) { ?>
+
+                <?php foreach ($activities as $activity) { ?>
                     <div class="row">
                         <div class="col-9">
                             <p><?php echo $activity['name_activity']; ?></p>
@@ -141,18 +149,52 @@
 
             </div>
 
-            <!-- RECAPITULATIF DES NOTES -->            
+            <!-- RECAPITULATIF DES NOTES -->
             <div>
                 <h3>Récapitulatif des notes</h3>
 
-                <?php foreach($likeActivities as $likeActivity) { ?>
-                <div>
-                    <p><?php echo $likeActivity['name_activity']; ?></p>
-                    <p><?php echo $likeActivity['total_note']; ?></p>
-                </div>
+                <?php foreach ($likeActivities as $likeActivity) { ?>
+                    <div>
+                        <p><?php echo $likeActivity['name_activity']; ?></p>
+                        <p><?php echo $likeActivity['total_note']; ?></p>
+                    </div>
                 <?php } ?>
-            </div>                
+            </div>
         </div>
     </div>
+
+    <!-- SNACKBAR -->
+    <div id="snackbar">
+        <?php
+        if (isset($_GET['ajout-contenu']) and $_GET['ajout-contenu'] == 'success') {
+            echo 'Votre activité a bien été ajoutée';
+        }
+        if (isset($_GET['update']) and $_GET['update'] == 'success') {
+            echo 'Votre activité a bien été modifiée';
+        }
+        ?>
+    </div>
+
+    <!-- Script pour lancer le toast -->
+    <script>
+        function myFunction() {
+            // Get the snackbar DIV
+            var x = document.getElementById("snackbar");
+
+            // Add the "show" class to DIV
+            x.className = "show";
+
+            // After 3 seconds, remove the show class from DIV
+            setTimeout(function() {
+                x.className = x.className.replace("show", "");
+            }, 3000);
+        }
+
+        <?php if (isset($_GET['ajout-contenu']) and $_GET['ajout-contenu'] == 'success' or isset($_GET['update']) and $_GET['update'] == 'success') { ?>
+            //Lance le snackbar au chargement de la page
+            window.onload = myFunction;
+        <?php } ?>
+    </script>
 </body>
+
 </html>

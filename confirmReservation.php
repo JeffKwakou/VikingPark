@@ -25,7 +25,7 @@
     if (isset($_SESSION['id'])) {
         //Retour à la page si les trois prix sont à 0
         if ($prixEnfant * $nbEnfant == 0 AND $prixAdulte * $nbAdulte == 0 AND $prixFamille * $nbFamille == 0) {
-            header('Location: reservation.phtml?reservation=you');
+            header('Location: reservation.phtml?prix=error');
         } else {
             if ( $currentDate <= $date) {
                 //Calculer le prix total de chaque catégorie
@@ -42,6 +42,6 @@
         }
     } else {
         //Retour à la page précédente
-        header('Location: reservation.phtml?reservation=error');
+        header('Location: reservation.phtml?connexion=error');
     }
 ?>

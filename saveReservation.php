@@ -45,6 +45,6 @@
         }
     } else {
         //Retour à la page précédente
-        header('Location: reservation.phtml?reservation=error');
+        header('Location: reservation.phtml?confirm-reservation=error');
     }
 ?>

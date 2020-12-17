@@ -96,7 +96,7 @@
                 }
                 
             } else {
-                header('Location: ../dashboard.php?ajout-contenu=error');
+                header('Location: ../dashboard.php?ajout-titre=error');
             }
         } else {
             header('Location: ../dashboard.php?ajout-contenu=error');

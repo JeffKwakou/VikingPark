@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,7 @@
     <!-- Intégration de mes scripts & styles -->
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!-- HEADER -->
     <?php include 'include/header.phtml' ?>
@@ -27,8 +29,8 @@
                     <p id="banniere-firstChild">Date d'ouverture : septembre 2021</p>
                     <p id="banniere-lastChild">Venez profiter de votre nouveau parc d'attraction en premier en pré-réservant votre ticket !</p>
                     <a href="reservation.phtml" type="button" class="btn btn-primary">Réserver maintenant</a>
-                </div>                
-            </div>            
+                </div>
+            </div>
         </section>
 
         <!-- SECTION ATTRACTIONS -->
@@ -39,41 +41,41 @@
 
                 <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
 
-                <!-- Indicators -->
-                <ul class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                </ul>
+                    <!-- Indicators -->
+                    <ul class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ul>
 
-                <!-- The slideshow -->
-                <div class="carousel-inner">
-                <?php foreach($attractions as $attraction) {?>
-                <div class="carousel-item <?php if($firstSlideAttraction == 1) {
-                    echo 'active';
-                    $firstSlideAttraction++;
-                } ?>">
-                    <img src="./assets/images/<?php echo $attraction['image_banner']; ?>" alt="<?php echo $attraction['name_activity']; ?>" width="100%" height="auto">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5><?php echo $attraction['name_activity']; ?></h5>
-                        <p><?php echo substr($attraction['description_activity'], 0, 45).'...'; ?></p>
+                    <!-- The slideshow -->
+                    <div class="carousel-inner">
+                        <?php foreach ($attractions as $attraction) { ?>
+                            <div class="carousel-item <?php if ($firstSlideAttraction == 1) {
+                                                            echo 'active';
+                                                            $firstSlideAttraction++;
+                                                        } ?>">
+                                <img src="./assets/images/<?php echo $attraction['image_banner']; ?>" alt="<?php echo $attraction['name_activity']; ?>" width="100%" height="auto">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5><?php echo $attraction['name_activity']; ?></h5>
+                                    <p><?php echo substr($attraction['description_activity'], 0, 45) . '...'; ?></p>
+                                </div>
+                            </div>
+                        <?php } ?>
                     </div>
-                </div>
-                <?php } ?>
-                </div>
 
-                <!-- Left and right controls -->
-                <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-                </a>
-                <a class="carousel-control-next" href="#myCarousel" data-slide="next">
-                <span class="carousel-control-next-icon"></span>
-                </a>
+                    <!-- Left and right controls -->
+                    <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
                 </div>
 
                 <div class="plusAttraction">
-                    <a type="button" class="btn btn-primary" href="#" >Toutes nos attractions</a>
-                </div>                
+                    <a type="button" class="btn btn-primary" href="#">Toutes nos attractions</a>
+                </div>
             </div>
         </section>
 
@@ -85,78 +87,116 @@
 
                 <div id="myCarouselActivite" class="carousel slide carousel-fade" data-ride="carousel">
 
-                <!-- Indicators -->
-                <ul class="carousel-indicators">
-                    <li data-target="#myCarouselActivite" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarouselActivite" data-slide-to="1"></li>
-                    <li data-target="#myCarouselActivite" data-slide-to="2"></li>
-                </ul>
+                    <!-- Indicators -->
+                    <ul class="carousel-indicators">
+                        <li data-target="#myCarouselActivite" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarouselActivite" data-slide-to="1"></li>
+                        <li data-target="#myCarouselActivite" data-slide-to="2"></li>
+                    </ul>
 
-                <!-- The slideshow -->
-                <div class="carousel-inner">
-                <?php foreach($activities as $activity) { ?>
-                <div class="carousel-item <?php if($firstSlideActivity == 1) {
-                    echo 'active';
-                    $firstSlideActivity++;
-                } ?>">
-                    <img src="./assets/images/<?php echo $activity['image_banner']; ?>" alt="<?php echo $activity['name_activity']; ?>" width="100%" height="auto">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5><?php echo $activity['name_activity']; ?></h5>
-                        <p><?php echo substr($activity['description_activity'], 0, 45).'...'; ?></p>
+                    <!-- The slideshow -->
+                    <div class="carousel-inner">
+                        <?php foreach ($activities as $activity) { ?>
+                            <div class="carousel-item <?php if ($firstSlideActivity == 1) {
+                                                            echo 'active';
+                                                            $firstSlideActivity++;
+                                                        } ?>">
+                                <img src="./assets/images/<?php echo $activity['image_banner']; ?>" alt="<?php echo $activity['name_activity']; ?>" width="100%" height="auto">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5><?php echo $activity['name_activity']; ?></h5>
+                                    <p><?php echo substr($activity['description_activity'], 0, 45) . '...'; ?></p>
+                                </div>
+                            </div>
+                        <?php } ?>
                     </div>
-                </div>
-                <?php } ?>
-                </div>
 
-                <!-- Left and right controls -->
-                <a class="carousel-control-prev" href="#myCarouselActivite" data-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-                </a>
-                <a class="carousel-control-next" href="#myCarouselActivite" data-slide="next">
-                <span class="carousel-control-next-icon"></span>
-                </a>
+                    <!-- Left and right controls -->
+                    <a class="carousel-control-prev" href="#myCarouselActivite" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#myCarouselActivite" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
                 </div>
 
                 <div class="plusAttraction">
-                    <a type="button" class="btn btn-primary" href="#" >Toutes nos activités</a>
-                </div>                
+                    <a type="button" class="btn btn-primary" href="#">Toutes nos activités</a>
+                </div>
             </div>
         </section>
 
         <!-- RESEAUX SOCIAUX & NEWSLETTER -->
         <section id="social">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h2>Réseaux Sociaux</h2>
-                    <p>Rejoingez-nous sur les réseaux sociaux et partagez vos attractions préférées avec vos ami(e)s.</p>
-                    <div>
-                        <div id="socialIcone">
-                            <a href="https://www.facebook.com/"><img src="./assets/icone/iconeFacebook.svg" alt="Icone Facebook" width="50" height="50"></a>
-                            <a href="https://twitter.com"><img src="./assets/icone/iconeTwitter.svg" alt="Icone Twitter" width="50" height="50"></a>
-                            <a href="https://www.instagram.com"><img src="./assets/icone/iconeInstagram.svg" alt="Icone Instagram" width="50" height="50"></a>
-                            <a href="https://www.youtube.com"><img src="./assets/icone/iconeYoutube.svg" alt="Icone Youtube" width="50" height="50"></a>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>Réseaux Sociaux</h2>
+                        <p>Rejoingez-nous sur les réseaux sociaux et partagez vos attractions préférées avec vos ami(e)s.</p>
+                        <div>
+                            <div id="socialIcone">
+                                <a href="https://www.facebook.com/"><img src="./assets/icone/iconeFacebook.svg" alt="Icone Facebook" width="50" height="50"></a>
+                                <a href="https://twitter.com"><img src="./assets/icone/iconeTwitter.svg" alt="Icone Twitter" width="50" height="50"></a>
+                                <a href="https://www.instagram.com"><img src="./assets/icone/iconeInstagram.svg" alt="Icone Instagram" width="50" height="50"></a>
+                                <a href="https://www.youtube.com"><img src="./assets/icone/iconeYoutube.svg" alt="Icone Youtube" width="50" height="50"></a>
+                            </div>
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <h2>Newsletter</h2>
+                        <p>Restez au courant des actualités du parc et profitez de promotions exclusives</p>
+                        <form action="contact/newsletter.php" method="post" class="form-group row">
+                            <label for="newsletter" class="col-3">Votre email : </label>
+                            <input type="text" name="newsletter" placeholder="Entrez votre email..." class="form-control col-6" id="inputNewsletter">
+                            <button type="submit" class="btn btn-primary col-3" id="btnNewsletter">S'abonner</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <h2>Newsletter</h2>
-                    <p>Restez au courant des actualités du parc et profitez de promotions exclusives</p>
-                    <form action="contact/newsletter.php" method="post" class="form-group row">
-                        <label for="newsletter" class="col-3">Votre email : </label>
-                        <input type="text" name="newsletter" placeholder="Entrez votre email..." class="form-control col-6" id="inputNewsletter">
-                        <button type="submit" class="btn btn-primary col-3" id="btnNewsletter">S'abonner</button>
-                    </form>
-                </div>
-            </div>            
-        </div>
+            </div>
         </section>
     </main>
+
+    <!-- SNACKBAR -->
+    <div id="snackbar">
+        <?php
+        if (isset($_GET['inscription']) == 'valide') {
+            echo 'Votre inscription a été pris en compte';
+        }
+        if (isset($_GET['newsletter'])) {
+            if ($_GET['newsletter'] == 'updated') {
+                echo 'Vous êtes désormais abonné(e) à la newsletter';
+            }
+            if ($_GET['newsletter'] == 'error') {
+                echo 'L\'email est incorrect';
+            }
+        }
+        ?>
+    </div>
+
+    <!-- Script pour lancer le toast -->
+    <script>
+        function myFunction() {
+            // Get the snackbar DIV
+            var x = document.getElementById("snackbar");
+
+            // Add the "show" class to DIV
+            x.className = "show";
+
+            // After 3 seconds, remove the show class from DIV
+            setTimeout(function() {
+                x.className = x.className.replace("show", "");
+            }, 3000);
+        }
+
+        <?php if (isset($_GET['inscription']) == 'valide' or isset($_GET['newsletter']) == 'updated' or isset($_GET['newsletter']) == 'error') { ?>
+            //Lance le snackbar au chargement de la page
+            window.onload = myFunction;
+        <?php } ?>
+    </script>
 
     <!-- FOOTER -->
     <?php include 'include/footer.phtml' ?>
 
 
-
 </body>
+
 </html>

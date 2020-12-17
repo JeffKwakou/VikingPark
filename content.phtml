@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +18,7 @@
     <link rel="stylesheet" href="content.css">
     <script src="content.js" defer></script>
 </head>
+
 <body>
     <!-- HEADER -->
     <?php include 'include/header.phtml' ?>
@@ -27,30 +29,28 @@
 
     <!-- CONTENU -->
     <main class="container">
-    <?php if (isset($_SESSION['id'])) { ?>
-        <form action="content/notation.php?content=<?php echo $activityContent['Id_activity'] ?>" method="post">
-            <h3>Notations de l'activité</h3>
+        <?php if (isset($_SESSION['id'])) { ?>
+            <form action="content/notation.php?content=<?php echo $activityContent['Id_activity'] ?>" method="post">
+                <h3>Notations de l'activité</h3>
 
-            <span class="fa fa-star checked" id="star1"></span>
-            <span class="fa fa-star checked" id="star2"></span>
-            <span class="fa fa-star checked" id="star3"></span>
-            <span class="fa fa-star" id="star4"></span>
-            <span class="fa fa-star" id="star5"></span>
+                <span class="fa fa-star checked" id="star1"></span>
+                <span class="fa fa-star checked" id="star2"></span>
+                <span class="fa fa-star checked" id="star3"></span>
+                <span class="fa fa-star" id="star4"></span>
+                <span class="fa fa-star" id="star5"></span>
 
-            <span id="resultRating">3/5</span>
-            <input type="hidden" name="rating" id="rating" value=3>
+                <span id="resultRating">3/5</span>
+                <input type="hidden" name="rating" id="rating" value=3>
 
-            <div><button type="submit" class="btn btn-primary">Envoyer</button></div>
-            <div><?php 
-                if(isset($_GET['notation']) == "error") {
-                    echo "Vous avez déjà noté cette activité";
-                } else if (isset($_GET['notation']) == "success") {
-                    echo "Votre note a été pris en compte";
-                }
-            ?></div>
+                <div><button type="submit" class="btn btn-primary">Envoyer</button></div>
+                <div><?php
+                        if (isset($_GET['notation']) and $_GET['notation'] == "error") {
+                            echo "Vous avez déjà noté cette activité";
+                        }
+                        ?></div>
 
-        </form>
-    <?php } ?>
+            </form>
+        <?php } ?>
 
         <div id="descriptionContent" class="col-md-8 offset-md-2">
             <p><?php echo $activityContent['description_activity']; ?></p>
@@ -63,7 +63,7 @@
                 <a href="activite.php" type="button" class="btn btn-primary">Voir toutes les évènements</a>
             <?php } ?>
         </div>
-        
+
 
         <!-- CAROUSEL -->
         <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
@@ -107,30 +107,40 @@
                 <div>
                     <label for="">Pseudo :
                         <input type="text" name="pseudo" value="<?php if (isset($_SESSION['pseudo'])) {
-                            echo $_SESSION['pseudo'];
-                        } ?>">
+                                                                    echo $_SESSION['pseudo'];
+                                                                } ?>">
                     </label>
-                </div>                
-                
+                </div>
+
                 <div>
-                    <label for="">Commentaires :</label> 
-                        <textarea name="commentaire" id="" cols="30" rows="10"></textarea>
-                    
-                </div>                               
+                    <label for="">Commentaires :</label>
+                    <textarea name="commentaire" id="" cols="30" rows="10"></textarea>
+                </div>
 
                 <button type="submit" class="btn btn-primary">Envoyer</button>
+
+                <!-- Gestion des erreurs -->
+                <p>
+                    <?php
+                    if (isset($_GET['commentaire'])) {
+                        if ($_GET['commentaire'] == 'error') {
+                            echo 'Veuillez remplir tous les champs';
+                        }
+                    }
+                    ?>
+                </p>
             </form>
 
             <!-- Affichage des commentaires -->
             <div>
                 <table class="table">
                     <tbody>
-                        <?php foreach($allCommentaries as $comment) { ?>
-                        <tr>
-                            <td class="pseudoStrong"><?php echo $comment['pseudo']; ?></td>
-                            <td><?php echo $comment['commentaire']; ?><br>
-                            <span class="post_date"><?php echo $comment['date_post']; ?></span></td>
-                        </tr>
+                        <?php foreach ($allCommentaries as $comment) { ?>
+                            <tr>
+                                <td class="pseudoStrong"><?php echo $comment['pseudo']; ?></td>
+                                <td><?php echo $comment['commentaire']; ?><br>
+                                    <span class="post_date"><?php echo $comment['date_post']; ?></span></td>
+                            </tr>
                         <?php } ?>
                     </tbody>
                 </table>
@@ -138,7 +148,41 @@
         </section>
     </main>
 
+    <!-- SNACKBAR -->
+    <div id="snackbar">
+        <?php
+        if (isset($_GET['commentaire']) and $_GET['commentaire'] == 'success') {
+            echo 'Votre commentaire a bien été envoyé';
+        }
+        if (isset($_GET['notation']) and $_GET['notation'] == "success") {
+            echo 'Votre note a été pris en compte';
+        }
+        ?>
+    </div>
+
+    <!-- Script pour lancer le toast -->
+    <script>
+        function myFunction() {
+            // Get the snackbar DIV
+            var x = document.getElementById("snackbar");
+
+            // Add the "show" class to DIV
+            x.className = "show";
+
+            // After 3 seconds, remove the show class from DIV
+            setTimeout(function() {
+                x.className = x.className.replace("show", "");
+            }, 3000);
+        }
+
+        <?php if (isset($_GET['commentaire']) and $_GET['commentaire'] == 'success' or isset($_GET['notation']) and $_GET['notation'] == "success") { ?>
+            //Lance le snackbar au chargement de la page
+            window.onload = myFunction;
+        <?php } ?>
+    </script>
+
     <!-- FOOTER -->
     <?php include 'include/footer.phtml' ?>
 </body>
+
 </html>

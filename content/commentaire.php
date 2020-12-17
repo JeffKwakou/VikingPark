@@ -13,7 +13,7 @@
     $idActivity = $_GET['activity'];
 
     //Vérifier si le pseudo et le commentaire existent et qu'ils ne sont pas vides
-    if (isset($commentaire) != '' AND isset($pseudo) != '') {
+    if (isset($commentaire) AND $commentaire != '' AND isset($pseudo) AND $pseudo != '') {
         //Insère le commentaire en database
         $reqCommentaire = $database->prepare("INSERT INTO commentaires (commentaire, pseudo, date_post, Id_activity) VALUES (:commentaire, :pseudo, :date_post, :Id_activity)");
         $reqCommentaire->execute(array(
@@ -29,5 +29,3 @@
         //Sinon on affiche une erreur
         header('Location: ../content.php?activity='.$idActivity.'&commentaire=error');
     }
-
-?>

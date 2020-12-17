@@ -1,260 +1,327 @@
 /* DECLARATION COULEURS ET FONTS */
 :root {
-    --blue-color: #1A1E26;
-    --turquoise-color: #71D3B4;
-    --grey-color: #E5E5E5;
-    --white-color: #ffffff;
-    --black-color: #000000;
-  }
-
-@font-face {
-    font-family: 'openSans-bold';
-    src: url('./assets/fonts/Open_Sans/OpenSans-Bold.ttf') format('truetype');
+  --blue-color: #1a1e26;
+  --turquoise-color: #71d3b4;
+  --grey-color: #e5e5e5;
+  --white-color: #ffffff;
+  --black-color: #000000;
 }
 
 @font-face {
-    font-family: 'openSans-semibold';
-    src: url('./assets/fonts/Open_Sans/OpenSans-SemiBold.ttf') format('truetype');
+  font-family: "openSans-bold";
+  src: url("./assets/fonts/Open_Sans/OpenSans-Bold.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'openSans';
-    src: url('./assets/fonts/Open_Sans/OpenSans-Regular.ttf') format('truetype');
+  font-family: "openSans-semibold";
+  src: url("./assets/fonts/Open_Sans/OpenSans-SemiBold.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'ptSerif';
-    src: url('./assets/fonts/PT_Serif/PTSerif-Regular.ttf') format('truetype');
+  font-family: "openSans";
+  src: url("./assets/fonts/Open_Sans/OpenSans-Regular.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'ptSerif-bold';
-    src: url('./assets/fonts/PT_Serif/PTSerif-Bold.ttf') format('truetype');
+  font-family: "ptSerif";
+  src: url("./assets/fonts/PT_Serif/PTSerif-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "ptSerif-bold";
+  src: url("./assets/fonts/PT_Serif/PTSerif-Bold.ttf") format("truetype");
 }
 
 /* GENERAL */
 body {
-    font-family: "openSans", sans-serif;
+  font-family: "openSans", sans-serif;
 }
 
 h1 {
-    text-transform: uppercase;
-    color: var(--grey-color);
-    font-size: 2.7em;
-    font-family: "ptSerif-bold";
+  text-transform: uppercase;
+  color: var(--grey-color);
+  font-size: 2.7em;
+  font-family: "ptSerif-bold";
 }
 
 h2 {
-    text-transform: uppercase;
-    color: var(--turquoise-color);
-    font-size: 2.2em;
-    font-family: "ptSerif-bold";
-    text-align: center;
+  text-transform: uppercase;
+  color: var(--turquoise-color);
+  font-size: 2.2em;
+  font-family: "ptSerif-bold";
+  text-align: center;
 }
 
 h3 {
-    text-align: center;
-    text-transform: uppercase;
-    font-family: "openSans-semibold";
-    font-size: 1em;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "openSans-semibold";
+  font-size: 1em;
 }
 
 h5 {
-    color: var(--grey-color);
-    font-size: 2em;
-    text-transform: uppercase;
-    font-family: "openSans-bold";
+  color: var(--grey-color);
+  font-size: 2em;
+  text-transform: uppercase;
+  font-family: "openSans-bold";
 }
 
 p {
-    font-size: 1em;
+  font-size: 1em;
 }
-
 
 /* HEADER */
 header {
-    background-color: var(--blue-color);
-    padding-bottom: 10px;
+  background-color: var(--blue-color);
+  padding-bottom: 10px;
 }
 
 #auth {
-    margin-top: 15px;
-    margin-right: 40px;
+  margin-top: 15px;
+  margin-right: 40px;
 }
 
 #auth a {
-    color: var(--grey-color);
-    font-size: 0.9em;
+  color: var(--grey-color);
+  font-size: 0.9em;
 }
 
 #sep-auth {
-    color: var(--grey-color);
+  color: var(--grey-color);
 }
 
 #navbarNav a {
-    color: var(--grey-color);
-    border-bottom: solid 3px transparent;
-    margin-left: 15px;
-    font-size: 1em;
+  color: var(--grey-color);
+  border-bottom: solid 3px transparent;
+  margin-left: 15px;
+  font-size: 1em;
 }
 
 #navbarNav a:hover {
-    color: var(--grey-color);
-    border-bottom: solid 3px var(--turquoise-color);
+  color: var(--grey-color);
+  border-bottom: solid 3px var(--turquoise-color);
 }
 
 #deconnexionSeparate {
-    color: var(--grey-color);
+  color: var(--grey-color);
 }
-
-
 
 /* BANNIERE */
 #banniere {
-    width: 100%;
-    height: auto;
-    background-image: url("./assets/images/warViking.jpg");
-    padding: 280px 0;
-    margin-top: 90px;
+  width: 100%;
+  height: auto;
+  background-image: url("./assets/images/warViking.jpg");
+  padding: 280px 0;
+  margin-top: 90px;
 }
 
 .viking {
-    color: var(--turquoise-color);
+  color: var(--turquoise-color);
 }
 
 #banniere h1 {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 #banniere-firstChild {
-    font-size: 1.2em;
-    font-family: "openSans-bold";
-    color: var(--grey-color);
+  font-size: 1.2em;
+  font-family: "openSans-bold";
+  color: var(--grey-color);
 }
 
 #banniere-lastChild {
-    color: var(--grey-color);
-    margin-bottom: 25px;
+  color: var(--grey-color);
+  margin-bottom: 25px;
 }
 
 #banniere a {
-    font-family: "openSans-bold";
-    text-transform: uppercase;
-    background-color: var(--turquoise-color);
-    color: var(--grey-color);
-    border: solid 3px var(--turquoise-color);
-    padding: 10px 20px;
+  font-family: "openSans-bold";
+  text-transform: uppercase;
+  background-color: var(--turquoise-color);
+  color: var(--grey-color);
+  border: solid 3px var(--turquoise-color);
+  padding: 10px 20px;
 }
 
 #banniere a:hover {
-    background-color: transparent;
-    color: var(--turquoise-color);
-    border: solid 3px var(--turquoise-color);
+  background-color: transparent;
+  color: var(--turquoise-color);
+  border: solid 3px var(--turquoise-color);
 }
-
 
 /* SECTION ATTRACTIONS & ACTIVITES */
 .attraction {
-    margin-top: 90px;
+  margin-top: 90px;
 }
 
-.attraction h3, #myCarousel, #myCarouselActivite {
-    margin-bottom: 30px;
+.attraction h3,
+#myCarousel,
+#myCarouselActivite {
+  margin-bottom: 30px;
 }
 
-#myCarousel p, #myCarouselActivite p {
-    text-transform: uppercase;
+#myCarousel p,
+#myCarouselActivite p {
+  text-transform: uppercase;
 }
 
 .plusAttraction {
-    text-align: center;
+  text-align: center;
 }
 
 .plusAttraction a {
-    color: var(--turquoise-color);
-    background-color: transparent;
-    border: solid 3px var(--turquoise-color);
-    font-family: "openSans-bold";
-    padding: 10px 20px;
-    text-transform: uppercase;
+  color: var(--turquoise-color);
+  background-color: transparent;
+  border: solid 3px var(--turquoise-color);
+  font-family: "openSans-bold";
+  padding: 10px 20px;
+  text-transform: uppercase;
 }
 
 .plusAttraction a:hover {
-    background-color: var(--turquoise-color);
-    color: var(--grey-color);
-    border: solid 3px var(--turquoise-color);
+  background-color: var(--turquoise-color);
+  color: var(--grey-color);
+  border: solid 3px var(--turquoise-color);
 }
-
 
 /* SOCIAL SECTION */
 #social {
-    margin-top: 90px;
-    margin-bottom: 60px;
+  margin-top: 90px;
+  margin-bottom: 60px;
 }
 
 #social p {
-    text-align: center;
+  text-align: center;
 }
 
 #social label {
-    margin: 0 !important;
-    vertical-align: middle;
+  margin: 0 !important;
+  vertical-align: middle;
 }
 
 #social input {
-    border: solid 3px var(--black-color);
+  border: solid 3px var(--black-color);
 }
 
 #social button {
-    background-color: transparent;
-    border: solid 3px var(--black-color);
-    color: var(--black-color);
-    border-radius: none;
+  background-color: transparent;
+  border: solid 3px var(--black-color);
+  color: var(--black-color);
+  border-radius: none;
 }
 
 #socialIcone {
-    text-align: center;
+  text-align: center;
 }
 
 #socialIcone a {
-    margin: 0 5px;
+  margin: 0 5px;
 }
 
 #inputNewsletter {
-    height: 40px;
-    width: auto;
+  height: 40px;
+  width: auto;
 }
 
 #btnNewsletter {
-    height: 40px;
-    width: auto;
+  height: 40px;
+  width: auto;
 }
-
 
 /* FOOTER */
 footer {
-    background-color: var(--blue-color);
-    padding-top: 2px;
-    padding-bottom: 10px;
+  background-color: var(--blue-color);
+  padding-top: 2px;
+  padding-bottom: 10px;
 }
 
 footer ul {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 footer a {
-    color: var(--grey-color);
-    font-size: 1em;
+  color: var(--grey-color);
+  font-size: 1em;
 }
 
 footer a:hover {
-    color: var(--grey-color);
-    text-decoration: underline !important;    
+  color: var(--grey-color);
+  text-decoration: underline !important;
 }
 
 footer div {
-    text-align: center;
-    font-size: 0.8em;
-    color: var(--grey-color);
-    margin-top: 15px;
+  text-align: center;
+  font-size: 0.8em;
+  color: var(--grey-color);
+  margin-top: 15px;
+}
+
+/* SNACKBAR / TOAST */
+#snackbar {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  background-color: #333; /* Black background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  left: 50%; /* Center the snackbar */
+  bottom: 30px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+  visibility: visible; /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+    However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
 }
