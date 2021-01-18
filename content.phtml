@@ -29,38 +29,48 @@
 
     <!-- CONTENU -->
     <main class="container">
-        <?php if (isset($_SESSION['id'])) { ?>
-            <form action="content/notation.php?content=<?php echo $activityContent['Id_activity'] ?>" method="post">
-                <h3>Notations de l'activité</h3>
+        <div <?php if (isset($_SESSION['id'])) { echo 'class="row"'; } ?>>
+        <div <?php if (!isset($_SESSION['id'])) { echo 'class="col-md-8 offset-md-2"'; } else { echo 'class="col-md-6"'; } ?>>
+                <div id="descriptionContent">
+                    <h3>Description de l'activité</h3>
+                    <p><?php echo $activityContent['description_activity']; ?></p>
+                </div>
 
-                <span class="fa fa-star checked" id="star1"></span>
-                <span class="fa fa-star checked" id="star2"></span>
-                <span class="fa fa-star checked" id="star3"></span>
-                <span class="fa fa-star" id="star4"></span>
-                <span class="fa fa-star" id="star5"></span>
+                <div id="buttonList">
+                    <?php if ($activityContent['type_activity'] == "attraction") { ?>
+                        <a href="attraction.php" type="button" class="btn btn-primary">Voir toutes les attractions</a>
+                    <?php } else { ?>
+                        <a href="activite.php" type="button" class="btn btn-primary">Voir toutes les évènements</a>
+                    <?php } ?>
+                </div>
+            </div>
 
-                <span id="resultRating">3/5</span>
-                <input type="hidden" name="rating" id="rating" value=3>
+            <?php if (isset($_SESSION['id'])) { ?>
+                <div class="col-md-6">
+                    <h3>Notations de l'activité</h3>
+                    <form action="content/notation.php?content=<?php echo $activityContent['Id_activity'] ?>" method="post">
+                        <div id="starRating">
+                            <span class="fa fa-star checked" id="star1"></span>
+                            <span class="fa fa-star checked" id="star2"></span>
+                            <span class="fa fa-star checked" id="star3"></span>
+                            <span class="fa fa-star" id="star4"></span>
+                            <span class="fa fa-star" id="star5"></span>
 
-                <div><button type="submit" class="btn btn-primary">Envoyer</button></div>
-                <div><?php
-                        if (isset($_GET['notation']) and $_GET['notation'] == "error") {
-                            echo "Vous avez déjà noté cette activité";
-                        }
-                        ?></div>
+                            <span id="resultRating">3/5</span>
+                            <input type="hidden" name="rating" id="rating" value=3>
+                        </div>
 
-            </form>
-        <?php } ?>
 
-        <div id="descriptionContent" class="col-md-8 offset-md-2">
-            <p><?php echo $activityContent['description_activity']; ?></p>
-        </div>
+                        <div id="envoiNote"><button type="submit" class="btn btn-primary">Envoyer</button></div>
+                        <div><?php
+                                if (isset($_GET['notation']) and $_GET['notation'] == "error") {
+                                    echo "Vous avez déjà noté cette activité";
+                                }
+                                ?></div>
 
-        <div id="buttonList">
-            <?php if ($activityContent['type_activity'] == "attraction") { ?>
-                <a href="attraction.php" type="button" class="btn btn-primary">Voir toutes les attractions</a>
-            <?php } else { ?>
-                <a href="activite.php" type="button" class="btn btn-primary">Voir toutes les évènements</a>
+                    </form>
+                </div>
+
             <?php } ?>
         </div>
 
@@ -102,22 +112,25 @@
 
         <!-- SECTION COMMENTAIRE -->
         <section>
+            <h3>Commentaires</h3>
             <!-- Formulaire pour commenter l'activité -->
-            <form action="content/commentaire.php?activity=<?php echo $activityContent['Id_activity']; ?>" method="post">
+            <form action="content/commentaire.php?activity=<?php echo $activityContent['Id_activity']; ?>" method="post" id="commentaireForm">
                 <div>
-                    <label for="">Pseudo :
-                        <input type="text" name="pseudo" value="<?php if (isset($_SESSION['pseudo'])) {
-                                                                    echo $_SESSION['pseudo'];
-                                                                } ?>">
-                    </label>
+                    <label for="">Pseudo : </label>
+                    <input type="text" name="pseudo" value="<?php if (isset($_SESSION['pseudo'])) {
+                                                                echo $_SESSION['pseudo'];
+                                                            } ?>" class="form-control">
+
                 </div>
 
                 <div>
                     <label for="">Commentaires :</label>
-                    <textarea name="commentaire" id="" cols="30" rows="10"></textarea>
+                    <textarea name="commentaire" rows="5" class="form-control"></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Envoyer</button>
+                <div id="envoiCommentaire">
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                </div>
 
                 <!-- Gestion des erreurs -->
                 <p>

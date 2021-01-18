@@ -32,34 +32,8 @@
     src: url('./assets/fonts/PT_Serif/PTSerif-Bold.ttf') format('truetype');
 }
 
-#dashboard {
+
+
+#list {
     margin-top: 150px;
-    margin-bottom: 20px;
-}
-
-h2 {
-    margin-bottom: 30px;
-}
-
-.form-group {
-    width: 100%;
-}
-
-label {
-    width: 100%;
-}
-
-#addNewType {
-    cursor: pointer;
-    color: var(--turquoise-color);
-}
-
-#addType {
-    display: none;
-}
-
-#list-user {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 40px;
 }

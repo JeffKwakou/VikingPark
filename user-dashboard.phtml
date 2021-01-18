@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - user name</title>
+
+    <!-- Intégration de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Intégration de mes scripts & styles -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="user-dashboard.css">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <?php include 'include/header.phtml' ?>
+
+    <!-- CONTENU -->
+    <div class="container" id="userDashboard">
+        <h2>Dashboard</h2>
+
+        <!-- Tableau pour afficher tous les tickets de l'utilisateur -->
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Code</th>
+                    <th>Nombres de places</th>
+                    <th>Date de réservation</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($allTickets as $allTicket) { ?>
+                <tr>
+                    <td><?php echo $allTicket['code']; ?></td>
+                    <td><?php echo $allTicket['quantity']; ?></td>
+                    <td><?php echo $allTicket['date_reservation']; ?></td>
+                    <td><a href="./dashboard/deleteTicket.php?id=<?php echo $allTicket['Id_reservationTicket']; ?>" class="btn btn-danger">Supprimer</a></td>
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SNACKBAR -->
+    <div id="snackbar">
+        <?php
+        if (isset($_GET['deleteTicket']) and $_GET['deleteTicket'] == 'success') {
+            echo 'La réservation a bien été annulé';
+        }
+        ?>
+    </div>
+
+    <!-- Script pour lancer le toast -->
+    <script>
+        function myFunction() {
+            // Get the snackbar DIV
+            var x = document.getElementById("snackbar");
+
+            // Add the "show" class to DIV
+            x.className = "show";
+
+            // After 3 seconds, remove the show class from DIV
+            setTimeout(function() {
+                x.className = x.className.replace("show", "");
+            }, 3000);
+        }
+
+        <?php if (isset($_GET['deleteTicket']) and $_GET['deleteTicket'] == 'success') { ?>
+            //Lance le snackbar au chargement de la page
+            window.onload = myFunction;
+        <?php } ?>
+    </script>
+
+</body>
+
+</html>

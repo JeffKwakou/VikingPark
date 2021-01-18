@@ -41,12 +41,12 @@
 
 #descriptionContent p {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 #buttonList {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .checked {
@@ -63,4 +63,24 @@ td {
 
 .pseudoStrong {
     font-family: 'openSans-bold';
+}
+
+#envoiNote, #starRating {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#starRating {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+#commentaireForm input, #commentaireForm textarea {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#envoiCommentaire {
+    text-align: right;
 }

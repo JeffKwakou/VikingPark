@@ -26,6 +26,16 @@
         <div class="container">
             <h2>Dashboard</h2>
 
+            <!-- BOUTON POUR GERER LES AUTORISATIONS DES UTILISATEURS -->
+            <?php if ($_SESSION['type'] == 1) { ?>
+                <div>
+                    <h3>Liste des utilisateurs du site</h3>
+                    <div id="list-user">
+                        <a href="list-users.php" class="btn btn-primary">Voir la liste</a>
+                    </div>
+                </div>
+            <?php } ?>
+
             <!-- FORMULAIRE POUR AJOUTER UN CONTENU -->
             <div>
                 <h3>Ajouter un contenu</h3>
@@ -134,31 +144,70 @@
                 }
                 ?>
 
-                <?php foreach ($activities as $activity) { ?>
-                    <div class="row">
-                        <div class="col-9">
-                            <p><?php echo $activity['name_activity']; ?></p>
-                            <p><?php echo $activity['description_activity']; ?></p>
-                        </div>
-                        <div class="col-3">
-                            <a href="dashboard.php?update=<?php echo $activity['Id_activity']; ?>" class="btn btn-warning">Modifier</a>
-                            <a href="dashboard/deleteActivity.php?activity=<?php echo $activity['Id_activity']; ?>" class="btn btn-danger">Supprimer</a>
-                        </div>
-                    </div>
-                <?php } ?>
+                <table class="table">
+                    <?php foreach ($activities as $activity) { ?>
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Nom de l'activité</th>
+                                <th>Description de l'activité</th>
+                                <th>Type d'activité</th>
+                                <th>Modifier</th>
+                                <th>Supprimer</th>                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><?php echo $activity['name_activity']; ?></td>
+                                <td><?php echo $activity['description_activity']; ?></td>
+                                <td><?php echo $activity['type_activity']; ?></td>
+                                <td><a href="dashboard.php?update=<?php echo $activity['Id_activity']; ?>" class="btn btn-warning">Modifier</a></td>
+                                <td><a href="dashboard/deleteActivity.php?activity=<?php echo $activity['Id_activity']; ?>" class="btn btn-danger">Supprimer</a></td>
+                            </tr>
+                        </tbody>
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Image bannière</th>
+                                <th>Image A</th>
+                                <th>Image B</th>
+                                <th>Image C</th>
+                                <th>Image D</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><img src="./assets/images/<?php echo $activity['image_banner']; ?>" alt="" width="150px" height="auto"></td>
+                                <td><img src="./assets/images/<?php echo $activity['imageA']; ?>" alt="" width="150px" height="auto"></td>
+                                <td><img src="./assets/images/<?php echo $activity['imageB']; ?>" alt="" width="150px" height="auto"></td>
+                                <td><img src="./assets/images/<?php echo $activity['imageC']; ?>" alt="" width="150px" height="auto"></td>
+                                <td><img src="./assets/images/<?php echo $activity['imageD']; ?>" alt="" width="150px" height="auto"></td>
+                            </tr>
+                        </tbody>
+                    <?php } ?>
+                </table>
 
             </div>
 
             <!-- RECAPITULATIF DES NOTES -->
             <div>
                 <h3>Récapitulatif des notes</h3>
-
-                <?php foreach ($likeActivities as $likeActivity) { ?>
-                    <div>
-                        <p><?php echo $likeActivity['name_activity']; ?></p>
-                        <p><?php echo $likeActivity['total_note']; ?></p>
-                    </div>
-                <?php } ?>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nom de l'activité</th>
+                            <th>Moyenne des notes</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($likeActivities as $likeActivity) { ?>
+                            <tr>
+                                <td><?php echo $likeActivity['name_activity']; ?></td>
+                                <td><?php echo (int)$likeActivity['total_note'] . " / 5"; ?></td>
+                                <td><a href="recap-note.php?id=<?php echo $likeActivity['name_activity']; ?>" class="btn btn-primary">Voir le récap de l'activité</a></td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
