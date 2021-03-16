@@ -24,7 +24,7 @@
             $code = "";
             for($i = 0; $i < 10; $i++) {
                 $random = strval(random_int(0,9));
-                $code .= $random;
+                $code = $random;
             }
 
             //Insérer le ticket dans la database
