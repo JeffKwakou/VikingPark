@@ -1,9 +1,9 @@
 <?php
     //Récupération des valeurs dans des variables
-    $email = $_POST['email'];
-    $pseudo = $_POST['pseudo'];
-    $password = $_POST['password'];
-    $passwordConfirm = $_POST['passwordConfirm'];
+    $email = htmlspecialchars($_POST['email']);
+    $pseudo = htmlspecialchars($_POST['pseudo']);
+    $password = htmlspecialchars($_POST['password']);
+    $passwordConfirm = htmlspecialchars($_POST['passwordConfirm']);
 
     // Connexion à ma database
     try {
