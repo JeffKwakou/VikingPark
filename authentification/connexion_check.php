@@ -10,7 +10,7 @@
     // Je récupère l'utilisateur dans ma database
     $request = $database->prepare('SELECT Id_User, pseudo, pass, role_user, email FROM userconnected INNER JOIN usercomplement ON userconnected.Id_userComplement = usercomplement.Id_userComplement WHERE pseudo = :pseudo');
     $request->execute(array(
-        'pseudo' => $_POST['pseudo']
+        'pseudo' => htmlspecialchars($_POST['pseudo'])
     ));
     $resultat = $request->fetch();
     
